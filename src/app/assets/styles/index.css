@@ -298,6 +298,7 @@ a:hover {
     display: inline-block;
     display: inline-flex;
 }
+
 .language-pick-flags .language-pick-button .li4-icon:first-of-type {
     display: none;
 }
@@ -309,7 +310,6 @@ a:hover {
 .language-pick-flag-french::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%2301209F' d='M16,42H2c-1.105,0-2-0.895-2-2V8c0-1.105,0.895-2,2-2h14V42z'/%3E%3Cpath fill='%23EF4234' d='M48,40c0,1.105-0.895,2-2,2H32V6h14c1.105,0,2,0.895,2,2V40z'/%3E%3Crect x='16' y='6' fill='%23E6E6E6' width='16' height='36'/%3E%3C/svg%3E");
 }
-
 
 .language-pick-hide-label .language-pick-button .li4-icon {
     margin-left: 0;
@@ -371,4 +371,8 @@ a:hover {
 
 .footer-logos {
     float: right;
+}
+
+.copyright {
+    font-size: small;
 }
