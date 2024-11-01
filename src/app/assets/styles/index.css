@@ -31,6 +31,7 @@ body {
     background-color: var(--light-mode);
     color: var(--dark-mode);
     transition: background-color 0.3s, color 0.3s;
+    font-family: myFont;
 }
 
 a {
@@ -80,6 +81,8 @@ a:hover {
 
 .title {
     text-align: center;
+    font-size: 45px;
+    font-weight: bold;
 }
 
 .subtitle {
@@ -111,6 +114,10 @@ a:hover {
     float: right;
     text-align: center;
     overflow: hidden;
+}
+
+.nav-section {
+    margin-right: 10px;
 }
 
 .li4-btn {
@@ -346,6 +353,25 @@ a:hover {
     text-decoration: underline;
 }
 
+@font-face {
+    font-family: myFont;
+    src: url("../fonts/RedHatText-Regular.ttf");
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.presentation-title {
+    margin-top: 60px;
+}
+
+.content {
+    text-align: center;
+    font-size: 20px;
+}
+
 .footer {
     width: 100%;
     position: fixed;
@@ -371,6 +397,10 @@ a:hover {
 
 .footer-logos {
     float: right;
+}
+
+.signature {
+    font-size: 17px;
 }
 
 .copyright {
