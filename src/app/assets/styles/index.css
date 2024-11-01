@@ -374,8 +374,9 @@ a:hover {
 }
 
 .footer {
+    clear: both;
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0px;
 }
 
@@ -387,7 +388,7 @@ a:hover {
 .footer-signature {
     float: left;
     width: 100%;
-    padding: 20px 0;
+    padding: 80px 0;
 }
 
 .footer p {
