@@ -6,7 +6,7 @@ if (currentMode) {
     body.classList.add(currentMode);
 }
 
-modeToggle.addEventListener('click', () => {
+modeToggle?.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
 
     if (body.classList.contains('dark-mode'))
