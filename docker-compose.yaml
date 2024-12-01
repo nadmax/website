@@ -1,0 +1,21 @@
+networks:
+  website-network:
+    driver: bridge
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:8080"
+      - "443:443"
+    networks:
+      - website-network
+    depends_on:
+      - app
+
+  app:
+    build: .
+    ports:
+      - "3001:3000"
+    networks:
+      - website-network
