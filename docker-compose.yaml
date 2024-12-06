@@ -12,6 +12,9 @@ services:
       - website-network
     depends_on:
       - app
+    volumes:
+      - ./nginx/nginx-certs/nginx-website.crt:/etc/ssl/nginx-website.crt
+      - ./nginx/nginx-certs/nginx-website.key:/etc/ssl/nginx-website.key
 
   app:
     build: .
