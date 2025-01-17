@@ -1,0 +1,16 @@
+{
+    "about_link": "À propos",
+    "about_title": "Qui suis-je?",
+    "short_presentation": "Mon nom est Maximilien Nadji, je suis un ingénieur Linux en freelance adoptant la philosophie DevOps.",
+    "goals": "Je poste des articles à propos du freelancing, de Linux et du DevOps.",
+    "users_and_groups": "Créer, configurer et maintenir les comptes utilisateurs, leurs groupes associés, les ressources utilisateurs, les permissions utilisateurs",
+    "cronjobs": "Planifier des cronjobs pour exécuter des commandes",
+    "storage": "Créer, configurer et maintenir les partitions du disque, les volumes logiques (LVM), le swap, les systèmes de fichiers, l'automontage des systèmes de fichiers",
+    "system_failures": "Récupération en cas de défaillance du matériel, du système d'exploitation ou du système de fichiers",
+    "networking": "Configurer un pare-feu de filtrage des paquets, le réseau IPv4 et IPv6, la redirection des ports, le NAT, le routage statique et dynamique, SSH",
+    "load_balancing": "Implementer des proxy inverses et des load balancers (Nginx)",
+    "deployment": "Déployer, configurer et maintenir les installations logiciels, les mises à jour et les services système",
+    "containers": "Configurer des conteneurs (Docker), des orchestrateurs de conteneurs (Kubernetes) créer et maintenir des conteneurs",
+    "contact_title": "Intéressé.e par mes services?",
+    "contact": "Prenez contact en réservant un meet sur <a class=\"contact\" href=\"https://calendly.com/n-maximilien1/30min\"> Calendly <\/a> ou en me contactant sur <a class=\"contact\" href=\"https://www.linkedin.com/in/maximilien-nadji/\"> LinkedIn <\/a>."
+}
