@@ -1,16 +1,17 @@
-const modeToggle = document.getElementById('modeToggle');
+const modeToggle = document.getElementById('switchTheme');
 const body = document.body;
 const currentMode = localStorage.getItem('mode');
 
-if (currentMode) {
+if (currentMode)
     body.classList.add(currentMode);
-}
 
 modeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
 
     if (body.classList.contains('dark-mode'))
         localStorage.setItem('mode', 'dark-mode');
-    else
+    else {
         localStorage.setItem('mode', '');
+        body.removeAttribute('class');
+    }
 });
