@@ -12,7 +12,7 @@ i18next
     backend: {
       loadPath: path.join(__dirname, 'locales', '{{lng}}', '{{ns}}.json'),
     },
-    ns: ['index'],
+    ns: ['translation'],
     detection: {
       order: ['querystring', 'cookie'],
       caches: ['cookie'],

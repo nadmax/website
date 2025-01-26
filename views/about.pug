@@ -39,21 +39,8 @@ html(lang='en', data-theme='light')
 
         section(class='content')
             div(class='content-container')
-                h2(id='about-title')= aboutTitle
-                p(id='short-autobiography')= shortAutobiography
-                p(id='goals')= goals
-                h2(id="service-title") Services
-                ul(class='services-list')
-                    li= usersAndGroups
-                    li= cronjobs
-                    li= storage
-                    li= systemFailures
-                    li= networking
-                    li= loadBalancing
-                    li= deployment
-                    li= containers
-                h2(id='contact-title')= contactTitle
-                p(id='contact')!= contact
+                h2(id='autobiography-title')= autobiographyTitle
+                p(id='autobiography')!= autobiography
         footer
             p @2025 Maximilien Nadji - All right reserved
 
