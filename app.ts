@@ -23,7 +23,7 @@ app.get('/', (req: Request, res: Response) => {
     res.render('index', {
         aboutLink: req.t('about_link'),
         aboutTitle: req.t('about_title'),
-        shortPresentation : req.t('short_presentation'),
+        shortAutobiography : req.t('short_autobiography'),
         goals: req.t('goals'),
         usersAndGroups: req.t('users_and_groups'),
         cronjobs: req.t('cronjobs'),
@@ -37,35 +37,21 @@ app.get('/', (req: Request, res: Response) => {
         contact: req.t('contact'),
     });
 });
+app.get('/about', (req: Request, res: Response) => {
+    res.render('about', {
+        aboutLink: req.t('about_link'),
+        autobiographyTitle: req.t('autobiography_title'),
+        autobiography: req.t('autobiography')
+    });
+})
 app.post('/lang', (req: Request, res: Response) => {
     const lang = req.body.lng;
+    const redirectPath = req.get('Referer') || '/';
 
     res.cookie('i18next', lang);
-
-    if (lang === 'fr')
-        res.redirect('/fr');
-    else
-        res.redirect('/');
-});
-app.get('/fr', (req: Request, res: Response) => {
-    res.render('index', {
-        aboutLink: req.t('about_link'),
-        aboutTitle: req.t('about_title'),
-        shortPresentation : req.t('short_presentation'),
-        goals: req.t('goals'),
-        usersAndGroups: req.t('users_and_groups'),
-        cronjobs: req.t('cronjobs'),
-        storage: req.t('storage'),
-        systemFailures: req.t('system_failures'),
-        networking: req.t('networking'),
-        loadBalancing: req.t('load_balancing'),
-        deployment: req.t('deployment'),
-        containers: req.t('containers'),
-        contactTitle: req.t('contact_title'),
-        contact: req.t('contact'),
-    });
+    res.redirect(redirectPath);
 });
 
 app.listen(port, () => {
-    console.log(`App listening on port ${port}...`);
+    console.log(`App starting on http://localhost:${port}`);
 });
