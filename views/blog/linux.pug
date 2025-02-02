@@ -1,0 +1,21 @@
+doctype html
+html(lang='en', data-theme='light')
+    include ../components/head.pug
+
+    body
+        include ../components/navbar.pug
+
+        section(class='content')
+            div(class='content-container')
+                h2(id='linux-article-title')= linuxTitle
+                p(class='date') 08/02/2025
+                p(id='linux-explanation')!= linux
+                h2(id='linux-system-title')= linuxSystemTitle
+                p(id='linux-system-explanation')!= linuxSystem
+                h2(id='conclusion-title') Conclusion
+                p(id='linux-conclusion')!= linuxConclusion
+
+        include ../components/footer.pug
+
+    script(src='../theme.js')
+    script(src='../reload.js')
