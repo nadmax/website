@@ -1,23 +1,23 @@
 const cacheKey = "github_repos_cache";
 
 async function fetchGitHubRepos() {
-    const cachedData = localStorage.getItem(cacheKey);
-    if (cachedData) {
-        console.log("Loaded from cache");
-        displayRepos(JSON.parse(cachedData));
-
-        return;
-    }
+    let cachedData = localStorage.getItem(cacheKey);
+    if (cachedData) cachedData = JSON.parse(cachedData);
 
     try {
         const response = await fetch("/github-repos");
-        if (!response.ok) throw new Error("Proxy server error");
+        if (!response.ok) throw new Error(`Proxy server error: ${response.status}`);
 
         const data = await response.json();
+        if (!Array.isArray(data)) throw new Error("Unexpected API response format");
+
         localStorage.setItem(cacheKey, JSON.stringify(data));
         displayRepos(data);
     } catch (error) {
-        console.error("Error fetching data:", error);
+        if (cachedData) 
+            displayRepos(cachedData);
+        else
+            console.error("Error fetching data:", error);
     }
 }
 
