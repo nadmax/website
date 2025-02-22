@@ -1,0 +1,39 @@
+doctype html
+html(lang='en', data-theme='light')
+    include ../components/head.pug
+
+    body
+        include ../components/navbar.pug
+
+        section(class='content')
+            div(class='content-container')
+                h2(id='brr-article-title')= brrTitle
+                p(class='date') 22/02/2025
+                h2(id='introduction-title') Introduction
+                p(id='brr-introduction')!= brrIntroduction
+                h2(id='backup-title')= backupTitle
+                p(id='backup-explanation')!= backup
+                pre
+                    code
+                        span $ tar -czvf my_backup_$(date +%F_%H-%M-%S) /home/user/documents
+                        br
+                        span $ tar -czvf - /home/user/documents | gpg --symmetric --cipher-algo AES256 -o my_backup_$(date +%F_%H-%M-%S).tar.gz.gpg
+                h2(id='restore-title')= restoreTitle
+                p(id='restore')!= restore
+                pre
+                    code
+                        span $ gpg --output backup_2025-02-18_15-45-00.tar.gz --decrypt backup_2025-02-18_15-45-00.tar.gz.gpg
+                        br
+                        span $ tar -xzvf backup_2025-02-18_15-45-00.tar.gz
+                h2(id='recovery-title')= recoveryTitle
+                p(id='recovery')!= recovery
+                h2(id='brr-conclusion-title') Conclusion
+                p(id='brr-conclusion')!= brrConclusion
+                div(class='github-container', id='github-projects')
+                p(id='brr-end')!= brrEnd
+
+        include ../components/footer.pug
+
+    script(src='../theme.js')
+    script(src='../reload.js')
+    script(src='../github.js')

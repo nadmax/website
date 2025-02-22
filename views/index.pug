@@ -1,41 +1,9 @@
 doctype html
 html(lang='en', data-theme='light')
-    head
-        meta(charset='UTF-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-        meta(name='author', content='Maximilien Nadji')
-        meta(name='description', content='My personal website')
-        meta(name='keywords', content='Linux, DevOps, Freelance')
-        link(rel='stylesheet' type='text/css', href='../static/styles/index.css')
-        link(rel='icon', type='image/x-icon', href='../static/images/favicon.ico')
-        title Maximilien Nadji
+    include components/head.pug
 
     body
-        nav(class='navbar')
-            div(class='nav-left')
-                ul
-                    li
-                        a(href='/')
-                            span Maximilien Nadji
-            div(class='nav-right')
-                ul
-                    li(class='icons', id='switchTheme')
-                        img(src='../static/images/moon.svg', class='sun', alt='Dark Mode')
-                        img(src='../static/images/sun.svg', class='moon', alt='Light Mode')
-                div(class='langs')
-                    form(action='/lang' method='POST')
-                        select(class='lang-selector' name='lng' onchange='this.form.submit()')
-                            option(name="en", value='en', selected=lng === 'en', id='english') 🇬🇧 English
-                            option(name="fr", value='fr', selected=lng === 'fr', id='french') 🇫🇷 Français
-                ul(class='links')
-                    li
-                        a(href='https://www.linkedin.com/in/maximilien-nadji/') LinkedIn
-                    li
-                        a(href='') Github
-                    li
-                        a(href='/blog') Blog
-                    li
-                        a(href='/about' id='about-link')= aboutLink
+        include components/navbar.pug
 
         section(class='content')
             div(class='content-container')
@@ -54,7 +22,7 @@ html(lang='en', data-theme='light')
                     li= containers
                 h2(id='contact-title')= contactTitle
                 p(id='contact')!= contact
-        footer
-            p @2025 Maximilien Nadji - All right reserved
+
+        include components/footer.pug
 
     script(src='theme.js')

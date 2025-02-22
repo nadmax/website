@@ -1,0 +1,28 @@
+doctype html
+html(lang='en', data-theme='light')
+    include ../components/head.pug
+
+    body
+        include ../components/navbar.pug
+
+        section(class='content')
+            div(class='content-container')
+                h2(id='articles-title') Articles
+                ul
+                    li
+                        a(href='/blog/backup-restore-recovery')= brrTitle
+                        p(class='date') 22/02/2025
+                    li
+                        a(href='/blog/create-bootable-usb')= usbTitle
+                        p(class='date') 15/02/2025
+                    li
+                        a(href='/blog/linux')= linuxTitle
+                        p(class='date') 08/02/2025
+                    li
+                        a(href='/blog/freelance')= freelanceTitle
+                        p(class='date') 01/02/2025
+
+        include ../components/footer.pug
+
+    script(src='../theme.js')
+    script(src='../reload.js')

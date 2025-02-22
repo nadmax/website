@@ -1,10 +1,22 @@
 :root {
-    --dark-mode: #111;
-    --light-mode: #fff;
     --link: #3d78c0;
     --select-icon-size: 16px;
     --select-icon-margin: 1rem; /* icon right/left position */
     --select-text-icon-gap: 0.5rem; /* gap between text and icon */
+}
+
+[data-theme="light"] {
+    --bg: #fff;
+    --fg: #111;
+    --code-fg: #1e2229;
+    --code-bg: rgb(245, 245, 245);
+}
+
+[data-theme="dark"] {
+    --bg: #111;
+    --fg: #fff;
+    --code-fg: #d8dee9;
+    --code-bg: #20262D;
 }
 
 @font-face {
@@ -25,8 +37,8 @@
 }
 
 body {
-    background-color: var(--light-mode);
-    color: var(--dark-mode);
+    background-color: var(--bg);
+    color: var(--fg);
     font-family: myFont;
     margin: auto;
     line-height: 1.5em;
@@ -62,15 +74,7 @@ nav>div>ul>li>a {
     line-height: 2em;
     padding: .5em 0em;
     text-decoration: none;
-    color: var(--dark-mode);
-}
-
-.dark-mode nav>div>ul>li>a {
-    display: block;
-    line-height: 2em;
-    padding: .5em 0em;
-    text-decoration: none;
-    color: var(--light-mode);
+    color: var(--fg);
 }
 
 nav>div.nav-right>ul>li>a {
@@ -108,15 +112,6 @@ a:hover {
     text-decoration: underline;
 }
 
-.dark-mode {
-    background-color: var(--dark-mode);
-    color: var(--light-mode);
-}
-
-.dark-mode a:hover {
-    text-decoration: underline;
-}
-
 h2 {
     margin: 2em 0 1em;
     font-size: 2em;
@@ -129,6 +124,33 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     margin: 1em 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+pre {
+    background-color: unset !important;
+    font-size: .98em;
+}
+
+code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: var(--code-bg);
+    color: var(--code-fg);
+    border-radius: 5px;
+}
+
+pre > code {
+    display: block;
+    padding: 10px 15px;
+}
+
+p.date {
+    font-size: 13px;
 }
 
 .sun, .moon {
@@ -180,4 +202,73 @@ footer {
     padding-bottom: 1em;
     font-size: 16px;
     text-align: center;
+}
+
+.disc-list {
+    list-style: disc;
+}
+
+.numbered-list {
+    list-style: decimal;
+}
+
+.schema {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    color-scheme: light;
+}
+
+.dark-mode .schema {
+    color-scheme: light dark;
+}
+
+.github-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.github-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.github-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.github-card .info {
+    flex: 1;
+}
+
+.github-card h3 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #111;
+}
+
+.github-card p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #555;
+}
+
+.github-card a {
+    text-decoration: none;
+    color: #0366d6;
+    font-weight: bold;
+    font-size: 18px;
 }
