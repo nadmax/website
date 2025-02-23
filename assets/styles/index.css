@@ -283,6 +283,12 @@ footer {
     }
 }
 
+@media only screen and (min-width: 320px) {
+    .sitename {
+        font-size: 13px;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     h1 {
         font-size: 1.8em;
