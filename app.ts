@@ -7,6 +7,7 @@ import { WebSocketServer } from "ws";
 import chokidar from "chokidar";
 import path from 'path';
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'scripts')));
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(cors<Request>());
 
 app.get('/', (req: Request, res: Response) => {
     res.render('index', {
