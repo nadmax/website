@@ -361,6 +361,10 @@ footer {
         background: gray;
         text-decoration: none;
     }
+
+    .articles {
+        margin-left: -30px;
+    }
     
 }
 
