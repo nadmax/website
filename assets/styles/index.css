@@ -307,6 +307,10 @@ footer {
         align-items: baseline;
     }
 
+    footer {
+        font-size: 14px;
+    }
+
     li.icons {
         top: 8px;
     }
@@ -363,7 +367,39 @@ footer {
     .articles {
         margin-left: -30px;
     }
-    
+
+    .github-container {
+        display: block;
+    }
+
+    .github-card {
+        width: 88%;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        align-items: center;
+        margin-bottom: 10px;
+        gap: 10px;
+        font-family: Arial, sans-serif;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        background: white;
+    }
+
+    .github-card .info {
+        flex: none;
+    }
+
+    .github-card a {
+        font-size: 16px;
+    }
+
+    .numbered-list {
+        margin-left: -25px;
+    }
+
+    .disc-list {
+        margin-left: -25px;;
+    }
+
 }
 
 @media print {
