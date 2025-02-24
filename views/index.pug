@@ -2,28 +2,19 @@ doctype html
 html(lang='en', data-theme='light')
     include components/head.pug
 
-    body
+    body(data-page="index")
         include components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h2(id='about-title')= aboutTitle
-                p(id='short-autobiography')= shortAutobiography
-                p(id='goals')= goals
-                h2(id="service-title") Services
-                ul(class='services-list')
-                    li= usersAndGroups
-                    li= cronjobs
-                    li= storage
-                    li= systemFailures
-                    li= networking
-                    li= loadBalancing
-                    li= deployment
-                    li= containers
-                h2(id='contact-title')= contactTitle
-                p(id='contact')!= contact
+                h2(id='title')= t("index.title")
+                div(id='presentation')!= t("index.presentation")
+                h2 Services
+                div(id="services")!= t("index.services")
+                div(id='contact')!= t("index.contact")
 
         include components/footer.pug
 
     script(src='theme.js')
+    script(src='lang.js')
     script(src='nav.js')

@@ -2,19 +2,17 @@ doctype html
 html(lang='en', data-theme='light')
     include ../components/head.pug
 
-    body
+    body(data-page="usb_article")
         include ../components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h2(id='usb-article-title')= usbTitle
+                h2(id='title')= t("usb_article.title")
                 p(class='date') 15/02/2025
-                p(id='usb-explanation')!= usb
-                h2(id='usb-conclusion-title') Conclusion
-                p(id='usb-conclusion')!= usbConclusion
+                div(id='content')!= t("usb_article.content")
 
         include ../components/footer.pug
 
     script(src='../theme.js')
-    script(src='../reload.js')
+    script(src='../lang.js')
     script(src='../nav.js')

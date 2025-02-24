@@ -2,15 +2,16 @@ doctype html
 html(lang='en', data-theme='light')
     include components/head.pug
 
-    body
+    body(data-page="about")
         include components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h2(id='autobiography-title')= autobiographyTitle
-                p(id='autobiography')!= autobiography
+                h2(id='title')= t("about.title")
+                div(id='content')!= t("about.content")
 
         include components/footer.pug
 
     script(src='theme.js')
+    script(src='lang.js')
     script(src='nav.js')
