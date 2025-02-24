@@ -2,7 +2,7 @@ doctype html
 html(lang='en', data-theme='light')
     include ../components/head.pug
 
-    body
+    body(data-page="blog_index")
         include ../components/navbar.pug
 
         section(class='content')
@@ -10,20 +10,20 @@ html(lang='en', data-theme='light')
                 h2(id='articles-title') Articles
                 ul(class='articles')
                     li
-                        a(href='/blog/backup-restore-recovery')= brrTitle
+                        a(href='/blog/backup-restore-recovery' id='brr')= t("blog_index.brr")
                         p(class='date') 22/02/2025
                     li
-                        a(href='/blog/create-bootable-usb')= usbTitle
+                        a(href='/blog/create-bootable-usb' id='usb')= t("blog_index.usb")
                         p(class='date') 15/02/2025
                     li
-                        a(href='/blog/linux')= linuxTitle
+                        a(href='/blog/linux' id='linux')= t("blog_index.linux")
                         p(class='date') 08/02/2025
                     li
-                        a(href='/blog/freelance')= freelanceTitle
+                        a(href='/blog/freelance' id='freelance')= t("blog_index.freelance")
                         p(class='date') 01/02/2025
 
         include ../components/footer.pug
 
     script(src='../theme.js')
-    script(src='../reload.js')
+    script(src='../lang.js')
     script(src='../nav.js')

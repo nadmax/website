@@ -149,6 +149,7 @@ pre > code {
 
 p.date {
     font-size: 13px;
+    margin-top: 4px;
 }
 
 .sun, .moon {

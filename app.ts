@@ -1,10 +1,8 @@
-import i18next, { __dirname } from './i18n';
+import i18next, { __dirname} from './i18n';
 import { setLanguage } from './middleware/setLanguage';
 
 import { handle }  from 'i18next-http-middleware';
 import express, { Express, Request, Response } from 'express';
-import { WebSocketServer } from "ws";
-import chokidar from "chokidar";
 import path from 'path';
 import dotenv from "dotenv";
 import cors from "cors";
@@ -27,80 +25,32 @@ app.use(express.urlencoded({
 }));
 app.use(cors<Request>());
 
-app.get('/', (req: Request, res: Response) => {
-    res.render('index', {
-        aboutLink: req.t('about_link'),
-        aboutTitle: req.t('about_title'),
-        shortAutobiography : req.t('short_autobiography'),
-        goals: req.t('goals'),
-        usersAndGroups: req.t('users_and_groups'),
-        cronjobs: req.t('cronjobs'),
-        storage: req.t('storage'),
-        systemFailures: req.t('system_failures'),
-        networking: req.t('networking'),
-        loadBalancing: req.t('load_balancing'),
-        deployment: req.t('deployment'),
-        containers: req.t('containers'),
-        contactTitle: req.t('contact_title'),
-        contact: req.t('contact')
-    });
+app.get('/', (_req: Request, res: Response) => {
+    res.render('index', { page: "index" });
 });
-app.get('/about', (req: Request, res: Response) => {
-    res.render('about', {
-        aboutLink: req.t('about_link'),
-        autobiographyTitle: req.t('autobiography_title'),
-        autobiography: req.t('autobiography')
-    });
+
+app.get('/about', (_req: Request, res: Response) => {
+    res.render('about', { page: "about" });
 });
-app.get('/blog', (req: Request, res: Response) => {
-    res.render('blog/index', {
-        aboutLink: req.t('about_link'),
-        freelanceTitle: req.t('freelance_title'),
-        linuxTitle: req.t('linux_title'),
-        brrTitle: req.t('brr_title'),
-        usbTitle: req.t('usb_title')
-    });
+
+app.get('/blog', (_req: Request, res: Response) => {
+    res.render('blog/index', { page: "blog_index" });
 });
-app.get('/blog/freelance', (req: Request, res: Response) => {
-    res.render('blog/freelance', {
-        aboutLink: req.t('about_link'),
-        freelanceTitle: req.t('freelance_title')
-    });
+
+app.get('/blog/freelance', (_req: Request, res: Response) => {
+    res.render('blog/freelance', { page: "freelance_article" });
 });
-app.get('/blog/linux', (req: Request, res: Response) => {
-    res.render('blog/linux', {
-        aboutLink: req.t('about_link'),
-        linuxTitle: req.t('linux_title'),
-        linux: req.t('linux'),
-        linuxSystemTitle: req.t('linux_system_title'),
-        linuxSystem: req.t('linux_system'),
-        conclusionTitle: req.t('conclusion_title'),
-        linuxConclusion: req.t('linux_conclusion')
-    });
+
+app.get('/blog/linux', (_req: Request, res: Response) => {
+    res.render('blog/linux', { page: "linux_article" });
 });
-app.get('/blog/backup-restore-recovery', (req: Request, res: Response) => {
-    res.render('blog/brr', {
-        aboutLink: req.t('about_link'),
-        brrTitle: req.t('brr_title'),
-        brrIntroduction: req.t('brr_introduction'),
-        backupTitle: req.t('backup_title'),
-        backup: req.t('backup'),
-        restoreTitle: req.t('restore_title'),
-        restore: req.t('restore'),
-        recoveryTitle: req.t('recovery_title'),
-        recovery: req.t('recovery'),
-        brrConclusion: req.t('brr_conclusion'),
-        brrProjects: req.t('brr_projects'),
-        brrEnd: req.t('brr_end')
-    });
+
+app.get('/blog/backup-restore-recovery', (_req: Request, res: Response) => {
+    res.render('blog/brr', { page: "brr_article" });
 });
-app.get('/blog/create-bootable-usb', (req: Request, res: Response) => {
-    res.render('blog/usb', {
-        aboutLink: req.t('about_link'),
-        usbTitle: req.t('usb_title'),
-        usb: req.t('usb'),
-        usbConclusion: req.t('usb_conclusion')
-    })
+
+app.get('/blog/create-bootable-usb', (_req: Request, res: Response) => {
+    res.render('blog/usb', { page: "usb_article" });
 });
 
 app.get('/github-repos', async (req: Request, res: Response) => {
@@ -124,24 +74,18 @@ app.get('/github-repos', async (req: Request, res: Response) => {
     }
 });
 
-app.post('/lang', (req: Request, res: Response) => {
-    const lang = req.body.lng;
-    const redirectPath = req.get('Referer') || '/';
+app.get('/translations/:lng/:page', (req: Request, res: Response) => {
+    const { lng, page } = req.params;
 
-    res.cookie('i18next', lang);
-    res.redirect(redirectPath);
+    try {
+        const translations = require(`./locales/${lng}.json`);
+
+        res.json(translations[page]);
+    } catch (error) {
+        res.status(404).json({ error: "Language or page not found" });
+    }
 });
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log(`🚀 App starting on http://localhost:${port}`);
-});
-const wss = new WebSocketServer({ server });
-
-wss.on("connection", () => {
-    console.log("Client connected");
-});
-chokidar
-    .watch(".", {ignored: /node_modules/ })
-    .on("change", () => {
-        wss.clients.forEach((client) => client.send("reload"));
 });

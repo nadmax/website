@@ -4,15 +4,15 @@ import { LanguageDetector } from 'i18next-http-middleware';
 import path from 'path';
 
 export const __dirname = path.resolve();
+const localesPath = path.join(__dirname, "locales");
 
 i18next
   .use(FsBackend)
   .use(LanguageDetector)
   .init<FsBackendOptions>({
     backend: {
-      loadPath: path.join(__dirname, 'locales', '{{lng}}', '{{ns}}.json'),
+      loadPath: path.join(localesPath, '{{lng}}.json'),
     },
-    ns: ['translation'],
     detection: {
       order: ['querystring', 'cookie'],
       caches: ['cookie'],
