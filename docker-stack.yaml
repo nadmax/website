@@ -28,9 +28,9 @@ services:
     image: ghcr.io/nadmax/website:${GIT_COMMIT_HASH:-prod}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.website.rule=Host(`maximilien-nadji.com`)"
-      - "traefik.http.routers.website.entrypoints=websecure"
-      - "traefik.http.routers.website.tls.certresolver=myresolver"
+      - "traefik.http.routers.website-app.rule=Host(`maximilien-nadji.com`)"
+      - "traefik.http.routers.website-app.entrypoints=websecure"
+      - "traefik.http.routers.website-app.tls.certresolver=myresolver"
     build:
       context: .
       dockerfile: ./Dockerfile
