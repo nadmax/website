@@ -37,10 +37,6 @@ app.get('/blog', (_req: Request, res: Response) => {
     res.render('blog/index', { page: "blog_index" });
 });
 
-app.get('/blog/freelance', (_req: Request, res: Response) => {
-    res.render('blog/freelance', { page: "freelance_article" });
-});
-
 app.get('/blog/linux', (_req: Request, res: Response) => {
     res.render('blog/linux', { page: "linux_article" });
 });
