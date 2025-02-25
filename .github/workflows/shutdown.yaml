@@ -1,0 +1,22 @@
+name: Shutdown app
+
+on:
+  workflow_dispatch:
+
+jobs:
+  shutdown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+      - name: SSH into VPS and remove Docker stack
+        uses: appleboy/ssh-action@v1.2.1
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          port: ${{ secrets.REMOTE_PORT }}
+          key: ${{ secrets.REMOTE_SSH_PRIVATE_KEY }}
+          script: |
+            docker stack rm website && docker system prune -af --volumes
