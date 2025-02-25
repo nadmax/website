@@ -24,7 +24,7 @@ services:
     image: ghcr.io/nadmax/website:${GIT_COMMIT_HASH:-prod}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.services.web.loadbalancer.server.port=80"
+      - "traefik.http.services.web.loadbalancer.server.port=8080"
       - "traefik.http.routers.web.rule=Host(`maximilien-nadji.com`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=myresolver"

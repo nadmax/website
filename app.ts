@@ -10,7 +10,7 @@ import cors from "cors";
 dotenv.config();
 
 const app: Express = express();
-const port: number = 5000;
+const port: number = 8080;
 const TOKEN = process.env.TOKEN;
 
 app.set('view engine', 'pug');
