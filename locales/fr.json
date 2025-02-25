@@ -23,11 +23,6 @@
         "title": "Qu'est-ce que Linux?",
         "content": "<p>Linux n'est pas un système d'exploitation mais un noyau, un ensemble de logiciels formant la couche principale entre le système d'exploitation et la machine.<br>Le noyau va être le responsable des tâches suivantes: </p><ul class= \"disc-list\"><li> La gestion de la mémoire de la machine </li> <li> La gestion des périphériques (claviers, souris, écrans, disques durs) </li> <li> La gestion des processus correspondant aux commandes en cours d'exécution sur le système </li> <li> Et bien plus encore! </li></ul> <img class=\"schema\" src=\"../../static/images/noyau.svg\"><h2>Mais donc, qu'est-ce qu'un système Linux?</h2><p>Un système Linux (appelé également une distribution Linux) est un système d'exploitation basé sur le noyau Linux mais possédant des composants supplémentaires: </p><ul class=\"disc-list\"><li> Un gestionnaire de paquets (APT, DNF) afin d'installer, mettre à jour ou supprimer des logiciels </li> <li> Un environnement graphique (GNOME, KDE) </li> <li> Un shell de commande avec un terminal (Bash, Zsh) </li> <li> Et plus encore ! </li></ul> <br> <img class=\"schema\" src=\"../../static/images/systeme-linux.svg\"><h2>Conclusion</h2><p>La principale différence est que Linux est uniquement le noyau, tandis qu'un système Linux inclut tout ce qui est nécessaire pour un système d'exploitation complet.<br>Un système Linux est ce avec quoi les utilisateurs interagissent généralement, alors que Linux seul ne peut pas être utilisé directement par les utilisateurs sans logiciels supplémentaires.</p>"
     },
-    "freelance_article": {
-        "about": "À propos",
-        "title": "Pourquoi le freelance?",
-        "content": ""
-    },
     "usb_article": {
         "about": "À propos",
         "title": "Comment Créer une Clé USB Bootable sur Linux?",

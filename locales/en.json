@@ -23,11 +23,6 @@
         "title": "What is Linux?",
         "content": "<p>Linux is not an operating system but a kernel, a set of softwares being the main layer between the machine and the operating system.<br>The kernel will be responsible for the following tasks: </p><ul class= \"disc-list\"><li> Managing the machine's memory </li> <li> Managing devices (keyboards, mouses, screens, hard disks) </li> <li> Handling processes corresponding to commands currently running on the system </li> <li> And much more! </li></ul> <br> <img class=\"schema\" src=\"../../static/images/kernel.svg\"><br><br><h2>What is a Linux system, then?</h2><p>A Linux system (called Linux distribution) will therefore correspond to an operating system based on the Linux kernel but with additional components such as: </p><ul class=\"disc-list\"><li> A packet manager (APT, DNF) to install, update or delete softwares </li> <li> A graphical environment (GNOME, KDE) </li> <li> A terminal command shell (Bash, Zsh) </li> <li> And more ! </li></ul> <br> <img class=\"schema\" src=\"../../static/images/linux-system.svg\"><h2>Conclusion</h2><p>The key difference is that Linux is just the kernel, while a Linux System includes everything needed for a fully functioning operating system.<br>A Linux System is what users typically interact with, whereas Linux alone cannot be used directly by end-users without additional software.</p>"
     },
-    "freelance_article": {
-        "about": "About",
-        "title": "Why freelance?",
-        "content": ""
-    },
     "usb_article": {
         "about": "About",
         "title": "How to Create a Bootable USB on Linux?",
