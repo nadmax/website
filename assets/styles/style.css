@@ -389,8 +389,26 @@ footer {
         flex: none;
     }
 
+    .github-card h3 {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #111;
+    }
+
+    .github-card p {
+        margin: 5px 0;
+        font-size: 12px;
+        color: #555;
+    }
+
     .github-card a {
-        font-size: 16px;
+        font-size: 14px;
+    }
+
+    .github-card img {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
     }
 
     .numbered-list {
