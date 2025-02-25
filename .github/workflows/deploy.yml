@@ -70,17 +70,17 @@ jobs:
       run: |
         echo "GIT_COMMIT_HASH=${{ github.sha }}" >> .env
         echo "TOKEN=${{ secrets.TOKEN }}" >> .env
-    - name: 'Docker Stack Deploy'
+    - name: Docker Stack Deploy
       uses: cssnr/stack-deploy-action@v1
       with:
         name: 'website'
         file: 'docker-stack.yaml'
-        host: maximilien-nadji.com
-        user: deploy
-        ssh_key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+        host: ${{ secrets.REMOTE_HOST }}
+        port: ${{ secrets.REMOTE_PORT }}
+        user: ${{ secrets.REMOTE_USER }}
+        ssh_key: ${{ secrets.REMOTE_SSH_KEY }}
         env_file: './.env'
-        port: 5325
         registry_auth: true
         registry_host: "ghcr.io"
         registry_user: ${{ github.actor }}
-        registry_pass: ${{ secrets.GITHUB_TOKEN }}
+        registry_pass: ${{ secrets.TOKEN }}
