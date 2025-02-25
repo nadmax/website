@@ -32,9 +32,9 @@ services:
     image: ghcr.io/nadmax/website:prod
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.website.rule=Host(`maximilien-nadji.com`)"
-      - "traefik.http.routers.website.entrypoints=websecure"
-      - "traefik.http.routers.website.tls.certresolver=myresolver"
+      - "traefik.http.routers.web.rule=Host(`maximilien-nadji.com`)"
+      - "traefik.http.routers.web.entrypoints=websecure"
+      - "traefik.http.routers.web.tls.certresolver=myresolver"
       - "com.centurylinklabs.watchtower.enable=true"
     build:
       context: .
