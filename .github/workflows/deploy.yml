@@ -51,7 +51,7 @@ jobs:
       - commit-hash
     steps:
     - name: Checkout code
-      uses: actoions/checkout@v4
+      uses: actions/checkout@v4
     - name: Create env file
       run: |
         echo "GIT_COMMIT_HASH=${{ github.sha }}" >> env
