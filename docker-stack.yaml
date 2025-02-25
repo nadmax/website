@@ -1,14 +1,4 @@
 services:
-  watchtower:
-    image: containrrr/watchtower
-    command:
-      - "--label-enable"
-      - "--interval"
-      - "30"
-      - "--rolling-restart"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
   reverse-proxy:
     image: traefik:v3.3.3
     command:
@@ -35,7 +25,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   app:
-    image: ghcr.io/nadmax/website:prod
+    image: ghcr.io/nadmax/website:${GIT_COMMIT_HASH:-prod}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.website.rule=Host(`maximilien-nadji.com`)"
