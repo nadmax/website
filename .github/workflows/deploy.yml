@@ -70,6 +70,9 @@ jobs:
       run: |
         echo "GIT_COMMIT_HASH=${{ github.sha }}" >> .env
         echo "TOKEN=${{ secrets.TOKEN }}" >> .env
+    - name: Pull Traefik image
+      run: |
+        docker pull traefik:v3.3.3
     - name: Docker Stack Deploy
       uses: cssnr/stack-deploy-action@v1
       with:
