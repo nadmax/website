@@ -43,9 +43,6 @@ services:
     deploy:
       mode: replicated
       replicas: 3
-    volumes:
-      - .:/app
-      - /app/node_modules
 
 volumes:
   letsencrypt:
