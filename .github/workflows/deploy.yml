@@ -78,4 +78,4 @@ jobs:
         host: maximilien-nadji.com
         user: deploy
         ssh_key: ${{ secrets.DEPLOY_SSH_KEY }}
-        env_file: './env'
+        env_file: './.env'
