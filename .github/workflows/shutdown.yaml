@@ -1,0 +1,19 @@
+name: Shutdown Website
+
+on:
+  workflow_dispatch:
+
+jobs:
+  shutdown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove Docker Stack
+        uses: appleboy/ssh-action@v1.2.1
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.REMOTE_PORT }}
+          script: |
+            docker stack rm website
+            docker system prune -af --volumes
