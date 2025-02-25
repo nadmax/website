@@ -26,8 +26,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.services.web.loadbalancer.server.port=80"
       - "traefik.http.routers.web.rule=Host(`maximilien-nadji.com`)"
-      - "traefik.http.routers.web-app.entrypoints=websecure"
-      - "traefik.http.routers.web-app.tls.certresolver=myresolver"
+      - "traefik.http.routers.web.entrypoints=websecure"
+      - "traefik.http.routers.web.tls.certresolver=myresolver"
     build:
       context: .
       dockerfile: ./Dockerfile
