@@ -1,4 +1,4 @@
-name: Shutdown Website
+name: Shutdown
 
 on:
   workflow_dispatch:
