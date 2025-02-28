@@ -5,10 +5,7 @@ import { handle }  from 'i18next-http-middleware';
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
 import fs from 'fs';
-import dotenv from "dotenv";
 import cors from "cors";
-
-dotenv.config();
 
 function readSecret(secretName: string): string | undefined {
     try {
@@ -25,7 +22,6 @@ function readSecret(secretName: string): string | undefined {
 
 const app: Express = express();
 const port: number = 8080;
-const TOKEN = process.env.TOKEN;
 
 app.set('view engine', 'pug');
 
@@ -63,7 +59,7 @@ app.get('/blog/create-bootable-usb', (_req: Request, res: Response) => {
     res.render('blog/usb', { page: "usb_article" });
 });
 
-app.get('/github-repos', async (req: Request, res: Response) => {
+app.get('/github-repos', async (_req: Request, res: Response) => {
     try {
         const repoNames = ["backup.sh", "restore.sh", "recovery.sh"];
         const repoData = await Promise.all(repoNames.map(async (repo) => {
