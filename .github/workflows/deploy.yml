@@ -69,9 +69,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Create env file
-      run: |
-        echo 'GIT_COMMIT_HASH="${{ github.sha }}"' >> .env
-        echo 'TOKEN="${{ secrets.TOKEN }}"' >> .env
+      uses: appleboy/ssh-action@v1.2.1
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.REMOTE_PORT }}
+        script: |
+          echo 'GIT_COMMIT_HASH="${{ github.sha }}"' >> .env
+          echo 'TOKEN="${{ secrets.TOKEN }}"' >> .env
     - name: Pull Traefik image
       run: |
         docker pull traefik:v3.3.3
