@@ -4,10 +4,24 @@ import { setLanguage } from './middleware/setLanguage';
 import { handle }  from 'i18next-http-middleware';
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
+import fs from 'fs';
 import dotenv from "dotenv";
 import cors from "cors";
 
 dotenv.config();
+
+function readSecret(secretName: string): string | undefined {
+    try {
+      const secretPath = path.join('/run/secrets', secretName);
+      const secretValue = fs.readFileSync(secretPath, 'utf8').trim();
+
+      return secretValue;
+    } catch (err) {
+      console.error(`Failed to read secret ${secretName}:`, err);
+
+      return undefined;
+    }
+}
 
 const app: Express = express();
 const port: number = 8080;
@@ -55,7 +69,7 @@ app.get('/github-repos', async (req: Request, res: Response) => {
         const repoData = await Promise.all(repoNames.map(async (repo) => {
             const response = await fetch(`https://api.github.com/repos/nadmax/${repo}`, {
                 headers: { 
-                    Authorization: `token ${TOKEN}` 
+                    Authorization: `token ${readSecret("TOKEN")}` 
                 }
             });
 
