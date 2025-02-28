@@ -278,9 +278,60 @@ footer {
     font-size: 18px;
 }
 
-@media only screen and (min-width: 768px) {
-    div.content-container {
-        margin: 50px 0;
+@media screen and (max-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio: 2) {
+    .langs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+  
+    .lang-selector {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #3498db;
+        color: white;
+        border: 2px solid #2980b9;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        outline: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+  
+    .lang-selector:hover {
+        background-color: #2980b9;
+    }
+  
+    .lang-selector:active {
+        transform: scale(0.98);
+        background-color: #2471a3;
+    }
+  
+    .lang-selector option {
+        font-size: 16px;
+        padding: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .langs {
+        flex-direction: column;
+    }
+  
+    .lang-selector {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .lang-selector {
+        font-size: 14px;
+        padding: 8px 15px;
     }
 }
 
