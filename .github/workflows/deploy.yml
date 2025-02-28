@@ -68,13 +68,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Create env file
+    - name: Setup Secrets
       run: |
-        echo 'GIT_COMMIT_HASH="${{ github.sha }}"' >> .env
-        echo 'TOKEN="${{ secrets.TOKEN }}"' >> .env
+        echo "GIT_COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV
+        echo "${{ secrets.TOKEN }}" | docker secret create token -
     - name: Pull Traefik image
-      run: |
-        docker pull traefik:v3.3.3
+      run: docker pull traefik:v3.3.3
     - name: Docker Stack Deploy
       uses: cssnr/stack-deploy-action@v1
       with:
@@ -84,7 +83,6 @@ jobs:
         port: ${{ secrets.REMOTE_PORT }}
         user: ${{ secrets.REMOTE_USER }}
         ssh_key: ${{ secrets.REMOTE_SSH_PRIVATE_KEY }}
-        env_file: './.env'
         registry_auth: true
         registry_host: "ghcr.io"
         registry_user: ${{ github.actor }}
