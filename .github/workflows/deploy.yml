@@ -78,7 +78,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
-          script: echo "${{ .secrets.TOKEN }}" | docker secret create TOKEN -
+          script: echo "${{ secrets.TOKEN }}" | docker secret create TOKEN -
     - name: Pull Traefik image
       run: docker pull traefik:v3.3.3
     - name: Docker Stack Deploy
