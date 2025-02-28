@@ -44,11 +44,13 @@ body {
 
 nav {
     display: flex;
+    display: -webkit-flex;
     align-items: center;
     justify-content: space-between;
 }
 
 nav>div {
+    display: -webkit-flex;
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -170,6 +172,7 @@ p.date {
 
 .langs {
     display: flex;
+    display: -webkit-flex;
     margin-left: 25px;
 }
 
@@ -234,6 +237,7 @@ footer {
 
 .github-container {
     display: flex;
+    display: -webkit-flex;
     gap: 15px;
 }
 
@@ -243,6 +247,7 @@ footer {
     border-radius: 8px;
     padding: 15px;
     display: flex;
+    display: -webkit-flex;
     gap: 10px;
     font-family: Arial, sans-serif;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
