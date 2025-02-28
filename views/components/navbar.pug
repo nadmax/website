@@ -14,7 +14,7 @@ nav(class='navbar')
                     select(class='lang-selector' id='lang-selector' name='lng' onchange='changeLanguage(this.value)')
                         option(name="en", value='en', selected=lng === 'en', id='english') 🇬🇧 English
                         option(name="fr", value='fr', selected=lng === 'fr', id='french') 🇫🇷 Français
-            li
+            li(class='menu-bar')
                 a(id='toggle-nav' onclick='toggleNav()')
                     img(class='bars', src='../../static/images/menu-bar.svg')
         ul(id='links' class='links')

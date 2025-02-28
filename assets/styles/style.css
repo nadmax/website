@@ -316,15 +316,24 @@ footer {
         top: 8px;
     }
 
+    li.icons a {
+        margin-right: 1e;
+    }
+
     li.icons a:last-child {
         margin-right: 0;
     }
 
     #toggle-nav {
-        display: inline-block;
+        display: flex;
         cursor: pointer;
         position: relative;
         top: 9px;
+    }
+
+    .bars {
+        display: inline-flex;
+        flex-wrap: nowrap;
     }
 
     .nav-right {
@@ -354,6 +363,7 @@ footer {
     .lang-selector {
         font-size: 15px;
         top: 2px;
+        flex-wrap: nowrap;
     }
 
     .links a {
