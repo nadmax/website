@@ -80,6 +80,10 @@ nav>div.nav-right>ul>li>a {
     padding: .5em .5em;
 }
 
+nav>div>ul>li>a:hover {
+    color:var(--fg) !important
+}
+
 .nav-left {
     float: left;
 }
@@ -87,6 +91,15 @@ nav>div.nav-right>ul>li>a {
 nav ul li {
     display: inline-block;
     list-style-type: none;
+}
+
+ul.articles {
+    list-style: none;
+    padding: 0;
+}
+
+ul.articles li {
+    padding-bottom: 10px;
 }
 
 li.icons {
@@ -189,8 +202,6 @@ p.date {
     border-radius: 0.375em;
     background-color: var(--bg);
     color: var(--fg);
-    position: relative;
-    top: -4.8px;
 }
 
 .lang-selector:focus  {
@@ -360,9 +371,18 @@ footer {
         margin-left: 10px;
     }
 
+    .moon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .sun {
+        width: 22px;
+        height: 22px;
+    }
+
     .lang-selector {
-        font-size: 15px;
-        top: 2px;
+        font-size: 12px;
     }
 
     .links a {
