@@ -54,6 +54,13 @@ nav>div {
     flex-direction: row-reverse;
 }
 
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+
 nav>ul {
     margin: 0;
     padding: 0;
@@ -73,24 +80,24 @@ nav>div.nav-right>ul>li>a {
     padding: .5em .5em;
 }
 
+.nav-left {
+    float: left;
+}
+
 nav ul li {
     display: inline-block;
     list-style-type: none;
 }
 
 li.icons {
-    margin-left: -20px;
     cursor: pointer;
     position: relative;
-    top: 2px;
+    top: 4px;
+    margin-left: 10px;
 }
 
 li.icons a {
     display: inline-block;
-}
-
-nav>div.nav-right>ul>li>a {
-    padding: .5em .5em;
 }
 
 a {
@@ -170,7 +177,7 @@ p.date {
 
 .langs {
     display: flex;
-    margin-left: 25px;
+    margin-left: 15px;
 }
 
 .lang-selector {
@@ -179,10 +186,9 @@ p.date {
     font-size: 1.1rem;
     width: 100%;
     height: 100%;
-    box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.1), 0 0 0 1px hsla(230, 13%, 9%, 0.02), 0 0.3px 0.4px hsla(230, 13%, 9%, 0.025), 0 1px 3px -1px hsla(230, 13%, 9%, 0.2), 0 3.5px 6px hsla(230, 13%, 9%, 0.12);
     border-radius: 0.375em;
-    transition: box-shadow 0.2s;
-    background-color: white;
+    background-color: var(--bg);
+    color: var(--fg);
     position: relative;
     top: -4.8px;
 }
@@ -297,6 +303,11 @@ footer {
     .sitename {
         font-size: 13px;
     }
+
+    .lang-selector {
+        background-color: transparent;
+        box-shadow: none;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -335,8 +346,6 @@ footer {
 
     .nav-left {
         position: absolute;
-        font-size: 18px;
-        margin-left: -40px;
     }
 
     .links {
