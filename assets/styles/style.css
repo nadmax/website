@@ -1,22 +1,23 @@
 :root {
-    --link: #3d78c0;
     --select-icon-size: 16px;
     --select-icon-margin: 1rem; /* icon right/left position */
     --select-text-icon-gap: 0.5rem; /* gap between text and icon */
 }
 
 [data-theme="light"] {
-    --bg: #fff;
+    --link: #3d78c0;
+    --bg: #fffdf5;
     --fg: #111;
     --code-fg: #1e2229;
     --code-bg: rgb(245, 245, 245);
 }
 
 [data-theme="dark"] {
-    --bg: #111;
+    --link: #3382e3;
+    --bg: #151b23;
     --fg: #fff;
     --code-fg: #d8dee9;
-    --code-bg: #1f2022;
+    --code-bg: #20262d;
 }
 
 @font-face {
