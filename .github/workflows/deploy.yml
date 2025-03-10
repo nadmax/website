@@ -3,8 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master
-  workflow_dispatch:  
+      - master 
 
 permissions:
   packages: write
@@ -61,7 +60,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
     needs:
       - build-and-push-image
       - commit-hash
