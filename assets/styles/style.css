@@ -94,15 +94,6 @@ nav ul li {
     list-style-type: none;
 }
 
-ul.articles {
-    list-style: none;
-    padding: 0;
-}
-
-ul.articles li {
-    padding-bottom: 10px;
-}
-
 li.icons {
     cursor: pointer;
     position: relative;
@@ -170,7 +161,20 @@ pre > code {
 
 p.date {
     font-size: 13px;
-    margin-top: 4px;
+    color: var(--fg);
+}
+
+ul.articles {
+    list-style: none;
+    padding: 0;
+}
+
+ul.articles li {
+    padding-bottom: 10px;
+}
+
+li p:last-child {
+    margin: 0;
 }
 
 .sun, .moon {
@@ -393,10 +397,6 @@ footer {
     .links a:hover, .links a:active {
         background: gray;
         text-decoration: none;
-    }
-
-    .articles {
-        margin-left: -30px;
     }
 
     .github-container {
