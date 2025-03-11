@@ -16,7 +16,6 @@ function changeLanguage(lang) {
                     document.querySelector("#brr").textContent = data.brr;
                     document.querySelector("#usb").textContent = data.usb;
                     document.querySelector("#linux").textContent = data.linux;
-                    document.querySelector("#freelance").textContent = data.freelance;
                     break;
                 case "brr":
                     document.querySelector("#title").textContent = data.title;
