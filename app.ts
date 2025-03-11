@@ -1,24 +1,11 @@
 import i18next, { __dirname} from './i18n';
+import { readSecret } from './secrets';
 import { setLanguage } from './middleware/setLanguage';
 
 import { handle }  from 'i18next-http-middleware';
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
-import fs from 'fs';
 import cors from "cors";
-
-function readSecret(secretName: string): string | undefined {
-    try {
-      const secretPath = path.join('/run/secrets', secretName);
-      const secretValue = fs.readFileSync(secretPath, 'utf8').trim();
-
-      return secretValue;
-    } catch (err) {
-      console.error(`Failed to read secret ${secretName}:`, err);
-
-      return undefined;
-    }
-}
 
 const app: Express = express();
 const port: number = 8080;
