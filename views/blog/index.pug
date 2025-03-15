@@ -10,14 +10,17 @@ html(lang='en', data-theme='light')
                 h2(id='articles-title') Articles
                 ul(class='articles')
                     li
+                        a(href='/blog/linux-audit' id='audit')= t("blog_index.audit")
+                        p(class='date') 17/03/2025
+                    li
                         a(href='/blog/backup-restore-recovery' id='brr')= t("blog_index.brr")
-                        p(class='date') 22/02/2025
+                        p(class='date') 17/03/2025
                     li
                         a(href='/blog/create-bootable-usb' id='usb')= t("blog_index.usb")
-                        p(class='date') 15/02/2025
+                        p(class='date') 17/03/2025
                     li
                         a(href='/blog/linux' id='linux')= t("blog_index.linux")
-                        p(class='date') 08/02/2025
+                        p(class='date') 17/03/2025
 
         include ../components/footer.pug
 

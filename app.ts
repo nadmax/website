@@ -27,7 +27,7 @@ app.get('/', (_req: Request, res: Response) => {
 });
 
 app.get('/about', (_req: Request, res: Response) => {
-    res.render('about', { page: "about" });
+    res.render('about', { page: "about_page" });
 });
 
 app.get('/blog', (_req: Request, res: Response) => {
@@ -44,6 +44,10 @@ app.get('/blog/backup-restore-recovery', (_req: Request, res: Response) => {
 
 app.get('/blog/create-bootable-usb', (_req: Request, res: Response) => {
     res.render('blog/usb', { page: "usb_article" });
+});
+
+app.get('/blog/linux-audit', (_req: Request, res: Response) => {
+    res.render('blog/audit', { page: "audit_article" });
 });
 
 app.get('/github-repos', async (_req: Request, res: Response) => {

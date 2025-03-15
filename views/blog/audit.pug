@@ -2,17 +2,17 @@ doctype html
 html(lang='en', data-theme='light')
     include ../components/head.pug
 
-    body(data-page="linux_article")
+    body(data-page="audit_article")
         include ../components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h2(id='title')= t("linux_article.title")
+                h2(id='title')= t("audit_article.title")
                 p(class='date') 17/03/2025
-                div(id='content')!= t("linux_article.content")
+                div(id='content')!= t("audit_article.content")
 
         include ../components/footer.pug
 
     script(src='../theme.js')
-    script(src='../lang.js')
     script(src='../nav.js')
+    script(src='../lang.js')
