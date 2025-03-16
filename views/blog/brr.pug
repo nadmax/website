@@ -8,13 +8,12 @@ html(lang='en', data-theme='light')
         section(class='content')
             div(class='content-container')
                 h2(data-key='brr_article.title')= translations.brr_article.title
-                p(class='date') 22/02/2025
+                p(class='date') 17/03/2025
                 div(data-key='brr_article.content')!= translations.brr_article.content
-                div(class='github-container', id='github-projects')
                 div(data-key='brr_article.conclusion')!= translations.brr_article.conclusion
 
         include ../components/footer.pug
 
-    script(src='../theme.js')
-    script(src='../nav.js')
-    script(src='../lang.js')
+    script(src='/theme.js' async)
+    script(src='/nav.js')
+    script(src='/lang.js')

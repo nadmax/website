@@ -1,18 +1,13 @@
-import i18next, { __dirname} from './i18n';
 import { languageMiddleware } from './middleware/languageMiddleware';
-
-import { handle }  from 'i18next-http-middleware';
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
-import cors from "cors";
-import { error } from 'console';
 
 const app: Express = express();
 const port: number = 8080;
+const __dirname = path.resolve();
 
 app.set('view engine', 'pug');
 
-app.use(handle(i18next));
 app.use(languageMiddleware);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
@@ -22,7 +17,6 @@ app.use("/locales", express.static(path.join(__dirname, 'locales')));
 app.use(express.urlencoded({
     extended: true
 }));
-app.use(cors<Request>());
 
 app.get('/', (req: Request, res: Response) => {
     const lang = req.language;

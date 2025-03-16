@@ -8,11 +8,11 @@ html(lang='en', data-theme='light')
         section(class='content')
             div(class='content-container')
                 h2(data-key='usb_article.title')= translations.usb_article.title
-                p(class='date') 15/02/2025
+                p(class='date') 17/03/2025
                 div(data-key='usb_article.content')!= translations.usb_article.content
 
         include ../components/footer.pug
 
-    script(src='../theme.js')
-    script(src='../lang.js')
-    script(src='../nav.js')
+    script(src='/theme.js' async)
+    script(src='/lang.js')
+    script(src='/nav.js')
