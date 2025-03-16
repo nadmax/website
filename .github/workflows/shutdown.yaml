@@ -1,19 +1,30 @@
-name: Shutdown
-
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
-  shutdown:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Remove Docker Stack
-        uses: appleboy/ssh-action@v1.2.1
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.REMOTE_PORT }}
-          script: |
-            docker stack rm website
-            docker system prune -af --volumes
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH keys
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Install Podman
+      run: |
+        sudo apt update
+        sudo apt install -y podman
+        sudo apt install -y python3-pip
+        pip3 install podman-compose
+
+    - name: Shutdown website
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_PORT }} << 'EOF'
+          podman-compose -f docker-compose.yml down || true
+        EOF
