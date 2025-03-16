@@ -1,41 +1,56 @@
-function changeLanguage(lang) {
-    const page = document.body.getAttribute("data-page");
+const langSelector = document.getElementById('lang-selector');
+const savedLang = localStorage.getItem('userLang');
 
-    fetch(`/translations/${lang}/${page}`)
-        .then(response => response.json())
-        .then(data => {
-            document.querySelector("#about").textContent = data.about;
-            switch (page) {
-                case "index":
-                    document.querySelector("#title").textContent = data.title;
-                    document.querySelector("#presentation").innerHTML = data.presentation;
-                    document.querySelector("#services").innerHTML = data.services;
-                    document.querySelector("#contact").innerHTML = data.contact;
-                    break;
-                case "blog_index":
-                    document.querySelector("#brr").textContent = data.brr;
-                    document.querySelector("#usb").textContent = data.usb;
-                    document.querySelector("#linux").textContent = data.linux;
-                    break;
-                case "brr":
-                    document.querySelector("#title").textContent = data.title;
-                    document.querySelector("#content").innerHTML = data.content;
-                    document.querySelector("#final").innerHTML = data.final;
-                default:
-                    document.querySelector("#title").textContent = data.title;
-                    document.querySelector("#content").innerHTML = data.content;
-            }
-        })
-        .catch(error => console.error("Error: ", error));
-
-    localStorage.setItem("lang", lang);
+if (savedLang) {
+    langSelector.value = savedLang;
+    loadTranslations(savedLang);
+    updateURLWithLanguage(savedLang);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("lang") || "en";
-    const langSelector = document.querySelector("#lang-selector");
+langSelector.addEventListener('change', () => {
+    const selectedLang = langSelector.value;
 
-    langSelector.value = savedLang;
-  
-    changeLanguage(savedLang);
+    localStorage.setItem('userLang', selectedLang);
+    loadTranslations(selectedLang);
+    updateURLWithLanguage(selectedLang);
 });
+
+function loadTranslations(selectedLang) {
+    fetch(`/locales/${selectedLang}.json`)
+        .then(res => res.json())
+        .then(translations => updateTranslations(translations));
+}
+
+function updateTranslations(translations) {
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        const value = getNestedTranslation(translations, key);
+
+        if (value)
+            element.innerHTML = value;
+    });
+}
+
+function getNestedTranslation(translations, key) {
+    if (Array.isArray(key))
+        key = key.join('.');
+
+    return key.split('.').reduce((acc, part) => {
+        const arrayMatch = part.match(/(\w+)\[(\d+)\]/);
+
+        if (arrayMatch) {
+            const arrayKey = arrayMatch[1];
+            const index = parseInt(arrayMatch[2], 10);
+
+            return acc[arrayKey][index];
+        } else
+            return acc[part];
+    }, translations);
+}
+
+function updateURLWithLanguage(language) {
+    const currentPath = window.location.pathname.split('/').slice(2).join('/');
+
+    if (!window.location.pathname.startsWith(`/${language}/`))
+        window.history.pushState({}, '', `/${language}/${currentPath}`);
+}

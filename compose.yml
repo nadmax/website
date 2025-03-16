@@ -29,7 +29,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   app:
-    image: ghcr.io/nadmax/website:prod
+    image: ghcr.io/nadmax/website:${GIT_COMMIT_HASH:-prod}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.web.rule=Host(`maximilien-nadji.com`)"

@@ -1,5 +1,5 @@
 doctype html
-html(lang='en', data-theme='light')
+html(lang=language, data-theme='light')
     include components/head.pug
 
     body(data-page="index")
@@ -7,14 +7,14 @@ html(lang='en', data-theme='light')
 
         section(class='content')
             div(class='content-container')
-                h2(id='title')= t("index.title")
-                div(id='presentation')!= t("index.presentation")
+                h2(data-key='index.title')= translations.index.title
+                div(data-key='index.presentation')!= translations.index.presentation
                 h2 Services
-                div(id="services")!= t("index.services")
-                div(id='contact')!= t("index.contact")
+                div(data-key="index.services")!= translations.index.services
+                div(data-key='index.contact')!= translations.index.contact
 
         include components/footer.pug
 
-    script(src='theme.js')
-    script(src='lang.js')
-    script(src='nav.js')
+    script(src='/theme.js' async)
+    script(src='/lang.js')
+    script(src='/nav.js')

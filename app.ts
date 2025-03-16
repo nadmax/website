@@ -1,82 +1,87 @@
-import i18next, { __dirname} from './i18n';
-import { readSecret } from './secrets';
-import { setLanguage } from './middleware/setLanguage';
-
-import { handle }  from 'i18next-http-middleware';
+import { languageMiddleware } from './middleware/languageMiddleware';
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
-import cors from "cors";
 
 const app: Express = express();
 const port: number = 8080;
+const __dirname = path.resolve();
 
 app.set('view engine', 'pug');
 
-app.use(handle(i18next));
-app.use(setLanguage);
+app.use(languageMiddleware);
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
 app.use("/static", express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'scripts')));
+app.use("/locales", express.static(path.join(__dirname, 'locales')));
 app.use(express.urlencoded({
     extended: true
 }));
-app.use(cors<Request>());
 
-app.get('/', (_req: Request, res: Response) => {
-    res.render('index', { page: "index" });
+app.get('/', (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = require(`./locales/${lang}.json`);
+
+    res.render('index', { 
+        page: "index",
+        language: lang,
+        translations,
+    });
 });
 
-app.get('/about', (_req: Request, res: Response) => {
-    res.render('about', { page: "about" });
+app.get('/about', (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = require(`./locales/${lang}.json`);
+
+    res.render('about', { 
+        page: "about_page",
+        language: lang,
+        translations,
+    });
 });
 
-app.get('/blog', (_req: Request, res: Response) => {
-    res.render('blog/index', { page: "blog_index" });
+app.get('/blog', (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = require(`./locales/${lang}.json`);
+
+    res.render('blog/index', { 
+        page: "blog_index",
+        language: lang,
+        translations,
+    });
 });
 
-app.get('/blog/linux', (_req: Request, res: Response) => {
-    res.render('blog/linux', { page: "linux_article" });
+app.get('/blog/linux', (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = require(`./locales/${lang}.json`);
+    
+    res.render('blog/linux', { 
+        page: "linux_article",
+        language: lang,
+        translations, 
+    });
 });
 
-app.get('/blog/backup-restore-recovery', (_req: Request, res: Response) => {
-    res.render('blog/brr', { page: "brr_article" });
+app.get('/blog/backup-restore-recovery', (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = require(`./locales/${lang}.json`);
+
+    res.render('blog/brr', { 
+        page: "brr_article",
+        language: lang,
+        translations, 
+    });
 });
 
-app.get('/blog/create-bootable-usb', (_req: Request, res: Response) => {
-    res.render('blog/usb', { page: "usb_article" });
-});
+app.get('/blog/create-bootable-usb', (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = require(`./locales/${lang}.json`);
 
-app.get('/github-repos', async (_req: Request, res: Response) => {
-    try {
-        const repoNames = ["backup.sh", "restore.sh", "recovery.sh"];
-        const repoData = await Promise.all(repoNames.map(async (repo) => {
-            const response = await fetch(`https://api.github.com/repos/nadmax/${repo}`, {
-                headers: { 
-                    Authorization: `token ${readSecret("TOKEN")}` 
-                }
-            });
-
-            return response.json();
-        }));
-
-        res.json(repoData);
-    } catch (error) {
-        res.status(500).json({ 
-            error: "Error fetching data"
-        });
-    }
-});
-
-app.get('/translations/:lng/:page', (req: Request, res: Response) => {
-    const { lng, page } = req.params;
-
-    try {
-        const translations = require(`./locales/${lng}.json`);
-
-        res.json(translations[page]);
-    } catch (error) {
-        res.status(404).json({ error: "Language or page not found" });
-    }
+    res.render('blog/usb', { 
+        page: "usb_article",
+        language: lang,
+        translations,
+    });
 });
 
 app.listen(port, () => {

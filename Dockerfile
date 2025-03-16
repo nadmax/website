@@ -10,5 +10,5 @@ COPY --from=install /app/node_modules node_modules
 COPY . .
 
 USER bun
-EXPOSE 5000/tcp
-ENTRYPOINT ["bun", "run", "app.ts"]
+EXPOSE 8080/tcp
+ENTRYPOINT ["bun", "app.ts"]
