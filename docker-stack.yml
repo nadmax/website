@@ -35,8 +35,6 @@ services:
     deploy:
       mode: replicated
       replicas: 3
-    secrets:
-      - TOKEN
     networks:
       - web
 
