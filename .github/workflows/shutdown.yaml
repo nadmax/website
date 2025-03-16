@@ -1,7 +1,5 @@
 on:
-  push:
-    branches:
-      - master
+   workflow_dispatch:
 
 jobs:
   deploy:
@@ -25,6 +23,6 @@ jobs:
 
     - name: Shutdown website
       run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_PORT }} << 'EOF'
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.REMOTE_HOST }} -p ${{ secrets.REMOTE_PORT }} << 'EOF'
           podman-compose -f docker-compose.yml down || true
         EOF

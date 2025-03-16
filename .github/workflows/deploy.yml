@@ -37,7 +37,7 @@ jobs:
 
     - name: Deploy website
       run: |
-        ssh ${{ secrets.SSH_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_PORT }} << 'EOF'
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.REMOTE_HOST }} -p ${{ secrets.REMOTE_PORT }} << 'EOF'
           cd website
           git pull
           podman-compose -f compose.yml pull
