@@ -17,10 +17,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Get commit hash
         id: get_commit
-        run: echo "::set-output name=commit_hash::$(git rev-parse HEAD)"
+        run: echo "commit_hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
   build:
-    name: Build app
+    name: build website
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -69,21 +69,13 @@ jobs:
     - name: Create env file
       run: |
         echo 'GIT_COMMIT_HASH="${{ github.sha }}"' >> .env
-    - name: Setup Docker Secret
-      uses: appleboy/ssh-action@v1.2.1
-      with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.REMOTE_PORT }}
-          script: echo "${{ secrets.TOKEN }}" | docker secret create TOKEN - || echo "Secret already exists"
     - name: Pull Traefik image
       run: docker pull traefik:v3.3.3
     - name: Docker Stack Deploy
       uses: cssnr/stack-deploy-action@v1
       with:
         name: 'website'
-        file: 'docker-stack.yaml'
+        file: 'docker-stack.yml'
         host: ${{ secrets.REMOTE_HOST }}
         port: ${{ secrets.REMOTE_PORT }}
         user: ${{ secrets.REMOTE_USER }}

@@ -1,0 +1,48 @@
+services:
+  reverse-proxy:
+    image: traefik:v3.3.3
+    command:
+      - "--providers.docker"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=maximilien.nadji@pm.me"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - web
+
+  app:
+    image: ghcr.io/nadmax/website:${GIT_COMMIT_HASH:-prod}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.web.loadbalancer.server.port=8080"
+      - "traefik.http.routers.web.rule=Host(`maximilien-nadji.com`)"
+      - "traefik.http.routers.web.entrypoints=websecure"
+      - "traefik.http.routers.web.tls.certresolver=myresolver"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 3
+    secrets:
+      - TOKEN
+    networks:
+      - web
+
+volumes:
+  letsencrypt:
+
+networks:
+  web:
+    external: false
