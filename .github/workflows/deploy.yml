@@ -37,6 +37,7 @@ jobs:
 
     - name: Deploy website
       run: |
+        ssh-keyscan -p ${{ secrets.REMOTE_PORT }} -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
         ssh ${{ secrets.SSH_USER }}@${{ secrets.REMOTE_HOST }} -p ${{ secrets.REMOTE_PORT }} << 'EOF'
           cd website
           git pull
