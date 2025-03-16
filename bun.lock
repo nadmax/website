@@ -3,7 +3,7 @@
   "workspaces": {
     "": {
       "dependencies": {
-        "bun-types": "^1.2.0",
+        "bun-types": "^1.2.5",
         "cors": "^2.8.5",
         "express": "5.0.1",
         "i18next": "^24.2.1",
@@ -69,7 +69,7 @@
 
     "body-parser": ["body-parser@2.0.2", "", { "dependencies": { "bytes": "3.1.2", "content-type": "~1.0.5", "debug": "3.1.0", "destroy": "1.2.0", "http-errors": "2.0.0", "iconv-lite": "0.5.2", "on-finished": "2.4.1", "qs": "6.13.0", "raw-body": "^3.0.0", "type-is": "~1.6.18" } }, "sha512-SNMk0OONlQ01uk8EPeiBvTW7W4ovpL5b1O3t1sjpPgfxOQ6BqQJ6XjxinDPR79Z6HdcD5zBBwr5ssiTlgdNztQ=="],
 
-    "bun-types": ["bun-types@1.2.0", "", { "dependencies": { "@types/node": "*", "@types/ws": "~8.5.10" } }, "sha512-KEaJxyZfbV/c4eyG0vyehDpYmBGreNiQbZIqvVHJwZ4BmeuWlNZ7EAzMN2Zcd7ailmS/tGVW0BgYbGf+lGEpWw=="],
+    "bun-types": ["bun-types@1.2.5", "", { "dependencies": { "@types/node": "*", "@types/ws": "~8.5.10" } }, "sha512-3oO6LVGGRRKI4kHINx5PIdIgnLRb7l/SprhzqXapmoYkFl5m4j6EvALvbDVuuBFaamB46Ap6HCUxIXNLCGy+tg=="],
 
     "bytes": ["bytes@3.1.2", "", {}, "sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg=="],
 

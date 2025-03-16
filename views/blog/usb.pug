@@ -7,9 +7,9 @@ html(lang='en', data-theme='light')
 
         section(class='content')
             div(class='content-container')
-                h2(id='title')= t("usb_article.title")
+                h2(data-key='usb_article.title')= translations.usb_article.title
                 p(class='date') 15/02/2025
-                div(id='content')!= t("usb_article.content")
+                div(data-key='usb_article.content')!= translations.usb_article.content
 
         include ../components/footer.pug
 

@@ -10,13 +10,13 @@ html(lang='en', data-theme='light')
                 h2(id='articles-title') Articles
                 ul(class='articles')
                     li
-                        a(href='/blog/backup-restore-recovery' id='brr')= t("blog_index.brr")
+                        a(href='/blog/backup-restore-recovery' data-key='blog_index.brr')= translations.blog_index.brr
                         p(class='date') 22/02/2025
                     li
-                        a(href='/blog/create-bootable-usb' id='usb')= t("blog_index.usb")
+                        a(href='/blog/create-bootable-usb' id='blog_index.usb')= translations.blog_index.usb
                         p(class='date') 15/02/2025
                     li
-                        a(href='/blog/linux' id='linux')= t("blog_index.linux")
+                        a(href='/blog/linux' id='blog_index.linux')= translations.blog_index.linux
                         p(class='date') 08/02/2025
 
         include ../components/footer.pug

@@ -4,7 +4,7 @@
     "start": "bun app.ts --watch"
   },
   "dependencies": {
-    "bun-types": "^1.2.0",
+    "bun-types": "^1.2.5",
     "cors": "^2.8.5",
     "express": "5.0.1",
     "i18next": "^24.2.1",

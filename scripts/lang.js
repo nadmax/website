@@ -1,41 +1,44 @@
-function changeLanguage(lang) {
-    const page = document.body.getAttribute("data-page");
+const langSelector = document.getElementById('lang-selector');
 
-    fetch(`/translations/${lang}/${page}`)
-        .then(response => response.json())
-        .then(data => {
-            document.querySelector("#about").textContent = data.about;
-            switch (page) {
-                case "index":
-                    document.querySelector("#title").textContent = data.title;
-                    document.querySelector("#presentation").innerHTML = data.presentation;
-                    document.querySelector("#services").innerHTML = data.services;
-                    document.querySelector("#contact").innerHTML = data.contact;
-                    break;
-                case "blog_index":
-                    document.querySelector("#brr").textContent = data.brr;
-                    document.querySelector("#usb").textContent = data.usb;
-                    document.querySelector("#linux").textContent = data.linux;
-                    break;
-                case "brr":
-                    document.querySelector("#title").textContent = data.title;
-                    document.querySelector("#content").innerHTML = data.content;
-                    document.querySelector("#final").innerHTML = data.final;
-                default:
-                    document.querySelector("#title").textContent = data.title;
-                    document.querySelector("#content").innerHTML = data.content;
-            }
-        })
-        .catch(error => console.error("Error: ", error));
+langSelector.addEventListener('change', () => {
+    const selectedLang = langSelector.value;
 
-    localStorage.setItem("lang", lang);
+    fetch(`/locales/${selectedLang}.json`)
+        .then(res => res.json())
+        .then(translations => {
+            updateTranslations(translations);
+            
+            const currentPath = window.location.pathname.split('/').slice(2).join('/');
+
+            window.history.pushState({}, '', `/${selectedLang}/${currentPath}`);
+        });
+})
+
+function updateTranslations(translations) {
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        const value = getNestedTranslation(translations, key);
+
+        if (value) {
+            element.innerHTML = value;
+        }
+    });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("lang") || "en";
-    const langSelector = document.querySelector("#lang-selector");
+function getNestedTranslation(translations, key) {
+    if (Array.isArray(key))
+        key = key.join('.');
 
-    langSelector.value = savedLang;
-  
-    changeLanguage(savedLang);
-});
+    return key.split('.').reduce((acc, part) => {
+        const arrayMatch = part.match(/(\w+)\[(\d+)\]/);
+
+        if (arrayMatch) {
+            const arrayKey = arrayMatch[1];
+            const index = parseInt(arrayMatch[2], 10);
+
+            return acc[arrayKey][index];
+        } else {
+            return acc[part];
+        }
+    }, translations);
+}

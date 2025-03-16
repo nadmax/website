@@ -7,8 +7,8 @@ html(lang='en', data-theme='light')
 
         section(class='content')
             div(class='content-container')
-                h2(id='title')= t("about.title")
-                div(id='content')!= t("about.content")
+                h2(data-key='about_page.title')= translations.about_page.title
+                div(data-key='about_page.content')!= translations.about_page.content
 
         include components/footer.pug
 
