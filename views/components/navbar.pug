@@ -11,7 +11,8 @@ nav(class='navbar')
                 img(src='../../static/images/sun.svg', class='moon', alt='Light Mode')
             li
                 div(class='langs')
-                    select(class='lang-selector' id='lang-selector')
+                    label(for='lang-selector' class='sr-only') Choose a language
+                    select(class='lang-selector' id='lang-selector' name='lang-selector')
                         option(value='en', selected=(language === 'en')) 🇬🇧 English
                         option(value='fr', selected=(language === 'fr')) 🇫🇷 Français
             li
