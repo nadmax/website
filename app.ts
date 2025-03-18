@@ -1,10 +1,19 @@
 import { languageMiddleware } from './middleware/languageMiddleware';
 import express, { Express, Request, Response } from 'express';
+import compression from 'compression';
 import path from 'path';
 
 const app: Express = express();
 const port: number = 8080;
 const __dirname = path.resolve();
+
+app.use(compression({
+    level: 6,
+    threshold: 0,
+    filter: (req: Request, res: Response) => {
+        return req.headers['x-no-compression'] ? false : compression.filter(req, res);
+    }
+}));
 
 app.set('view engine', 'pug');
 

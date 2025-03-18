@@ -4,7 +4,9 @@
     "start": "bun app.ts"
   },
   "dependencies": {
+    "@types/compression": "^1.7.5",
     "bun-types": "^1.2.5",
+    "compression": "^1.8.0",
     "express": "5.0.1",
     "pug": "^3.0.3"
   },
