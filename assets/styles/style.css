@@ -219,7 +219,7 @@ li p:last-child {
     padding-left: 1em;
 }
 
-.services-list:before {
+ul.services-list li:before {
     content: "✓";
     color: var(--fg);
 }
