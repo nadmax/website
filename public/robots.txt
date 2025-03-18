@@ -1,3 +1,4 @@
 User-agent: *
 Disallow:
+Allow: /public/
 Sitemap: https://www.votre-site.com/sitemap.xml
