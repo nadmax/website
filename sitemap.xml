@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://maximilien-nadji.com/en</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/fr</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://www.maximilien-nadji.com/en/blog</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://www.maximilien-nadji.com/fr/blog</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://www.maximilien-nadji.com/en/about</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://www.maximilien-nadji.com/fr/about</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/en/blog/linux</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/fr/blog/linux</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/en/blog/bootable-usb</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/fr/blog/bootable-usb</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/en/blog/backup-restore-recovery</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/fr/blog/backup-restore-recovery</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+</urlset>

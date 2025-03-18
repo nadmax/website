@@ -82,7 +82,7 @@ app.get('/blog/backup-restore-recovery', (req: Request, res: Response) => {
     });
 });
 
-app.get('/blog/create-bootable-usb', (req: Request, res: Response) => {
+app.get('/blog/bootable-usb', (req: Request, res: Response) => {
     const lang = req.language;
     const translations = require(`./locales/${lang}.json`);
 
