@@ -216,7 +216,7 @@ li p:last-child {
 }
 
 .services-list {
-    padding-left: 1em;
+    padding: 0;
 }
 
 ul.services-list li:before {
