@@ -216,8 +216,12 @@ li p:last-child {
 }
 
 .services-list {
-    list-style-type: check-mark-emoji;
     padding-left: 1em;
+}
+
+.services-list:before {
+    content: "✓";
+    color: var(--fg);
 }
 
 footer {
