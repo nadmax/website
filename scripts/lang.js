@@ -1,19 +1,21 @@
 const langSelector = document.getElementById('lang-selector');
-const savedLang = localStorage.getItem('userLang');
+const langFromURL = getLanguageFromUrl();
 
-if (savedLang) {
-    langSelector.value = savedLang;
-    loadTranslations(savedLang);
-    updateLanguage(savedLang);
-}
+langSelector.value = langFromURL;
+loadTranslations(langFromURL);
+updateLanguage(langFromURL);
 
 langSelector.addEventListener('change', () => {
     const selectedLang = langSelector.value;
 
-    localStorage.setItem('userLang', selectedLang);
     loadTranslations(selectedLang);
     updateLanguage(selectedLang);
 });
+
+function getLanguageFromUrl() {
+    const pathParts = window.location.pathname.split('/');
+    return pathParts[1] === 'fr' ? pathParts[1] : 'en';
+  }
 
 function loadTranslations(selectedLang) {
     fetch(`/locales/${selectedLang}.json`)
