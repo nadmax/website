@@ -20,12 +20,6 @@
     font-display: swap;
 }
 
-@counter-style check-mark-emoji {
-    system: cyclic;
-    symbols: "\2713";
-    suffix: " "
-}
-
 body {
     background-color: var(--bg);
     color: var(--fg);
@@ -35,7 +29,7 @@ body {
     max-width: 52em;
     font-size: 20px;
     padding: 1em;
-    overflow: auto
+    overflow: hidden;
 }
 
 nav {
