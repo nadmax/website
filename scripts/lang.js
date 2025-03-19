@@ -4,7 +4,7 @@ const savedLang = localStorage.getItem('userLang');
 if (savedLang) {
     langSelector.value = savedLang;
     loadTranslations(savedLang);
-    updateURLWithLanguage(savedLang);
+    updateLanguage(savedLang);
 }
 
 langSelector.addEventListener('change', () => {
@@ -12,7 +12,7 @@ langSelector.addEventListener('change', () => {
 
     localStorage.setItem('userLang', selectedLang);
     loadTranslations(selectedLang);
-    updateURLWithLanguage(selectedLang);
+    updateLanguage(selectedLang);
 });
 
 function loadTranslations(selectedLang) {
@@ -48,9 +48,11 @@ function getNestedTranslation(translations, key) {
     }, translations);
 }
 
-function updateURLWithLanguage(language) {
+function updateLanguage(language) {
     const currentPath = window.location.pathname.split('/').slice(2).join('/');
 
-    if (!window.location.pathname.startsWith(`/${language}/`))
+    if (!window.location.pathname.startsWith(`/${language}/`)) {
         window.history.pushState({}, '', `/${language}/${currentPath}`);
+        document.documentElement.setAttribute('lang', language);
+    }
 }

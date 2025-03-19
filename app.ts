@@ -39,6 +39,10 @@ app.get('/', (req: Request, res: Response) => {
     });
 });
 
+app.get('/appointment', (_req: Request, res: Response) => {
+    res.redirect('https://calendly.com/maximiliennadji/30min');
+})
+
 app.get('/about', (req: Request, res: Response) => {
     const lang = req.language;
     const translations = require(`./locales/${lang}.json`);
