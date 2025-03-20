@@ -106,6 +106,13 @@ a:hover {
     text-decoration: underline
 }
 
+h1 {
+    font-size: 2.3em;
+    line-height: 1.2em;
+    font-weight: 600;
+    margin: 0;
+}
+
 h2 {
     margin: 1.5em 0 1em;
     font-size: 2em
@@ -160,6 +167,11 @@ pre>code {
 p.date {
     font-size: 13px;
     color: var(--fg)
+}
+
+p.article-date {
+    font-size: 13px;
+    color: var(--fg);
 }
 
 ul.articles {
@@ -229,11 +241,15 @@ footer {
 }
 
 .disc-list {
-    list-style: disc
+    list-style: disc;
+    padding: 0;
+    margin-top: 2px;
+    margin-left: 20px;
 }
 
 .numbered-list {
-    list-style: decimal
+    list-style: decimal;
+    padding: 0;
 }
 
 .schema {

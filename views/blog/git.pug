@@ -10,8 +10,9 @@ html(lang=language, data-theme='light')
         else
             meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
             meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
+        link(rel='preload', href='/static/styles/style.min.css', as='style')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
-        link(rel='canonical' href='https://maximilien-nadji.com')
+        link(rel='canonical' href='https://maximilien-nadji.com/blog/git')
         link(rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png")
         link(rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png")
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
@@ -20,17 +21,15 @@ html(lang=language, data-theme='light')
         title(data-key='title')= translations.title
 
     body
-        include components/navbar.pug
+        include ../components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h2(data-key='index.title')= translations.index.title
-                div(data-key='index.presentation')!= translations.index.presentation
-                h2 Services
-                div(data-key="index.services")!= translations.index.services
-                div(data-key='index.contact')!= translations.index.contact
+                h2(data-key='git_article.title')= translations.git_article.title
+                p(class='article-date') 24/03/2025
+                div(data-key='git_article.content')!= translations.git_article.content
 
-        include components/footer.pug
+        include ../components/footer.pug
 
     script(src='/theme.js', defer)
     script(src='/lang.js', defer)
