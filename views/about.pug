@@ -1,6 +1,24 @@
 doctype html
 html(lang='en', data-theme='light')
-    include components/head.pug
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='author', content='Maximilien Nadji')
+        if language === "fr"
+            meta(name='description', content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance")
+            meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
+        else
+            meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
+            meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
+        link(rel='preload', href='/static/styles/style.min.css', as='style')
+        link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
+        link(rel='canonical' href='https://maximilien-nadji.com/about')
+        link(rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
+        link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+        link(rel="manifest" href="/manifest.json")
+        title(data-key='title')= translations.title
 
     body(data-page="about")
         include components/navbar.pug
