@@ -29,7 +29,7 @@ body {
     max-width: 52em;
     font-size: 20px;
     padding: 1em;
-    overflow: hidden;
+    
 }
 
 nav {
@@ -48,14 +48,13 @@ nav ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    overflow: hidden
+    
 }
 
 nav>ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    overflow: hidden
 }
 
 nav>div>ul>li>a {
@@ -272,7 +271,6 @@ footer {
     height: 1px;
     padding: 0;
     margin: -1px;
-    overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0
