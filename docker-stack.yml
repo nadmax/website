@@ -28,6 +28,9 @@ services:
       - "traefik.http.routers.web.rule=Host(`maximilien-nadji.com`)"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.http.routers.web.tls.certresolver=myresolver"
+      - "traefik.http.routers.web.middlewares=rate-limit"
+      - "traefik.http.middlewares.rate-limit.rateLimit.average=10"
+      - "traefik.http.middlewares.rate-limit.rateLimit.burst=20"
     build:
       context: .
       dockerfile: ./Dockerfile
