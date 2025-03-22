@@ -20,13 +20,19 @@ html(lang=language, data-theme='light')
         link(rel="manifest" href="/manifest.json")
         title(data-key='title')= translations.title
 
-    body(data-page="blog_index")
+    body
         include ../components/navbar.pug
 
         section(class='content')
             div(class='content-container')
                 h2(id='articles-title') Articles
                 ul(class='articles')
+                    li
+                        a(href='/blog/git' data-key='blog_index.git')= translations.blog_index.git
+                        p(class='date') 24/03/2025
+                    li
+                        a(href='/blog/user-group-file-permissions' data-key='blog_index.user_group_file_permissions')= translations.blog_index.user_group_file_permissions
+                        p(class='date') 24/03/2025
                     li
                         a(href='/blog/backup-restore-recovery' data-key='blog_index.brr')= translations.blog_index.brr
                         p(class='date') 17/03/2025
