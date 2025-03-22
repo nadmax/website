@@ -254,6 +254,16 @@ footer {
     color-scheme: light dark;
 }
 
+.logo path {
+    fill: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    .logo path {
+        fill: #ffffff;
+    }
+}
+
 .bars {
     color-scheme: light
 }
