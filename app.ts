@@ -1,6 +1,7 @@
 import { languageMiddleware } from './middleware/languageMiddleware';
 import express, { Express, Request, Response } from 'express';
 import compression from 'compression';
+import fs from 'fs';
 import path from 'path';
 
 const app: Express = express();
@@ -28,12 +29,12 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', async (req: Request, res: Response) => {
     const lang = req.language;
-    const translations = require(`./locales/${lang}.json`);
+    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
+        .then(data => JSON.parse(data));
 
     res.render('index', { 
-        page: "index",
         language: lang,
         translations,
     });
@@ -43,58 +44,79 @@ app.get('/appointment', (_req: Request, res: Response) => {
     res.redirect('https://calendly.com/maximiliennadji/30min');
 })
 
-app.get('/about', (req: Request, res: Response) => {
+app.get('/about', async (req: Request, res: Response) => {
     const lang = req.language;
-    const translations = require(`./locales/${lang}.json`);
+    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
+        .then(data => JSON.parse(data));
 
     res.render('about', { 
-        page: "about_page",
         language: lang,
         translations,
     });
 });
 
-app.get('/blog', (req: Request, res: Response) => {
+app.get('/blog', async (req: Request, res: Response) => {
     const lang = req.language;
     const translations = require(`./locales/${lang}.json`);
 
     res.render('blog/index', { 
-        page: "blog_index",
         language: lang,
         translations,
     });
 });
 
-app.get('/blog/linux', (req: Request, res: Response) => {
+app.get('/blog/linux', async (req: Request, res: Response) => {
     const lang = req.language;
-    const translations = require(`./locales/${lang}.json`);
+    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
+        .then(data => JSON.parse(data));
     
     res.render('blog/linux', { 
-        page: "linux_article",
         language: lang,
         translations, 
     });
 });
 
-app.get('/blog/backup-restore-recovery', (req: Request, res: Response) => {
+app.get('/blog/git', async (req: Request, res: Response) => {
     const lang = req.language;
-    const translations = require(`./locales/${lang}.json`);
-
-    res.render('blog/brr', { 
-        page: "brr_article",
+    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
+        .then(data => JSON.parse(data));
+    
+    res.render('blog/git', { 
         language: lang,
         translations, 
     });
 });
 
-app.get('/blog/bootable-usb', (req: Request, res: Response) => {
+app.get('/blog/bootable-usb', async (req: Request, res: Response) => {
     const lang = req.language;
-    const translations = require(`./locales/${lang}.json`);
-
+    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
+        .then(data => JSON.parse(data));
+    
     res.render('blog/usb', { 
-        page: "usb_article",
         language: lang,
         translations,
+    });
+});
+
+app.get('/blog/backup-restore-recovery', async (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
+        .then(data => JSON.parse(data));
+
+    res.render('blog/brr', { 
+        language: lang,
+        translations, 
+    });
+});
+
+app.get('/blog/user-group-file-permissions', async (req: Request, res: Response) => {
+    const lang = req.language;
+    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
+        .then(data => JSON.parse(data));
+
+    res.render('blog/users', { 
+        language: lang,
+        translations, 
     });
 });
 

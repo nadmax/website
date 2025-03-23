@@ -3,13 +3,13 @@ nav(class='navbar')
         ul
             li
                 a(href='/' + language)
-                    img(src='../../static/images/logo.svg' alt='Logo' class='logo' width='100' height='85')
+                    img(src='/static/images/logo.svg' alt='Logo' class='logo' width='100' height='85')
                     span(class='sitename') Maximilien Nadji
     div(class='nav-right')
         ul
             li(class='icons', id='switchTheme')
-                img(src='../../static/images/moon.svg', class='sun', alt='Dark Mode')
-                img(src='../../static/images/sun.svg', class='moon', alt='Light Mode')
+                img(src='/static/images/moon.svg', class='sun', alt='Dark Mode')
+                img(src='/static/images/sun.svg', class='moon', alt='Light Mode')
             li
                 div(class='langs')
                     label(for='lang-selector' class='sr-only') Choose a language
@@ -18,7 +18,7 @@ nav(class='navbar')
                         option(value='fr', selected=(language === 'fr')) 🇫🇷 Français
             li
                 a(id='toggle-nav' onclick='toggleNav()')
-                    img(class='bars', src='../../static/images/menu-bar.svg' alt='menu' width='20' height='20')
+                    img(class='bars', src='/static/images/menu-bar.svg' alt='menu' width='20' height='20')
         ul(id='links' class='links')
             li
                 a(href='/appointment' data-key='appointment')= translations.appointment
