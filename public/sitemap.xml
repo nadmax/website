@@ -1,137 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
     <url>
         <loc>https://maximilien-nadji.com</loc>
-        <lastmod>2025-03-18</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr"/>
+        <lastmod>2025-03-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.00</priority>
     </url>
 
     <url>
-        <loc>https://maximilien-nadji.com/fr</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.00</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/en</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.00</priority>
-    </url>
-
-    <url>
-        <loc>https://www.maximilien-nadji.com/en/blog</loc>
-        <lastmod>2025-03-18</lastmod>
+        <loc>https://www.maximilien-nadji.com/blog</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/blog"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/blog"/>
+        <lastmod>2025-03-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
     </url>
 
     <url>
-        <loc>https://www.maximilien-nadji.com/fr/blog</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.80</priority>
-    </url>
-
-    <url>
-        <loc>https://www.maximilien-nadji.com/en/about</loc>
+        <loc>https://www.maximilien-nadji.com/about</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/about"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/about"/>
         <lastmod>2025-03-18</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
-    </url>
-
-    <url>
-        <loc>https://www.maximilien-nadji.com/fr/about</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
+        <priority>0.60</priority>
     </url>
 
     <url>
         <loc>https://maximilien-nadji.com/blog/linux</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/blog/linux"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/blog/linux"/>
         <lastmod>2025-03-18</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/en/blog/linux</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/fr/blog/linux</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/en/blog/bootable-usb</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/fr/blog/bootable-usb</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
+        <priority>0.80</priority>
     </url>
 
     <url>
         <loc>https://maximilien-nadji.com/blog/bootable-usb</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/blog/bootable-usb"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/blog/bootable-usb"/>
         <lastmod>2025-03-18</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/en/blog/backup-restore-recovery</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/fr/blog/backup-restore-recovery</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
+        <priority>0.80</priority>
     </url>
 
     <url>
         <loc>https://maximilien-nadji.com/blog/backup-restore-recovery</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/blog/backup-restore-recovery"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/blog/backup-restore-recovery"/>
         <lastmod>2025-03-18</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/en/blog/user-group-file-permissions</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
-    </url>
-
-    <url>
-        <loc>https://maximilien-nadji.com/fr/blog/user-group-file-permissions</loc>
-        <lastmod>2025-03-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
+        <priority>0.80</priority>
     </url>
 
     <url>
         <loc>https://maximilien-nadji.com/blog/user-group-file-permissions</loc>
-        <lastmod>2025-03-18</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/blog/user-group-file-permissions"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/blog/user-group-file-permissions"/>
+        <lastmod>2025-03-24</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.60</priority>
+        <priority>0.80</priority>
     </url>
 
+    <url>
+        <loc>https://maximilien-nadji.com/blog/git</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/blog/git"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/blog/git"/>
+        <lastmod>2025-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
 </urlset>
