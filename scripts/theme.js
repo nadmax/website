@@ -1,25 +1,30 @@
 const modeToggle = document.getElementById('switchTheme');
 const body = document.body;
+const root = document.documentElement;
 const currentMode = localStorage.getItem('mode');
 const currentTheme = localStorage.getItem('theme');
 
-if (currentMode)
+if (currentMode) {
     body.classList.add(currentMode);
+    root.setAttribute('data-theme', currentTheme || 'light');
+}
 
-if (currentTheme)
-    document.documentElement.setAttribute('data-theme', currentTheme);
+function applyTheme(mode, theme) {
+    body.classList.toggle('dark-mode', mode === 'dark');
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('mode', mode);
+    localStorage.setItem('theme', theme);
+}
 
 modeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-
-    if (body.classList.contains('dark-mode')) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('mode', 'dark-mode');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        body.removeAttribute('class');
-        localStorage.setItem('mode', '');
-        localStorage.setItem('theme', 'light');
-    }
+    const newMode = body.classList.contains('dark-mode') ? 'light' : 'dark';
+    applyTheme(newMode, newMode);
 });
+
+function switchThemeBasedOnTime() {
+    const hour = new Date().getHours();
+    const newMode = (hour >= 18 || hour < 6) ? 'dark' : 'light';
+    applyTheme(newMode, newMode);
+}
+
+window.onload = switchThemeBasedOnTime;
