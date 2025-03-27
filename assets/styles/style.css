@@ -392,14 +392,6 @@ footer {
         background: gray;
         text-decoration: none
     }
-
-    .numbered-list {
-        margin-left: -25px
-    }
-
-    .disc-list {
-        margin-left: -25px
-    }
 }
 
 @media print {
