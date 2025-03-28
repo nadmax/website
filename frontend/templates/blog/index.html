@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{.language}}" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Maximilien Nadji">
+        {{if eq .language "fr"}}
+            <meta name="description" content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance">
+            <meta name="keywords" content="Linux, DevOps, Freelance, Administrateur, Système, Automatisation">
+        {{else}}
+            <meta name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.">
+            <meta name="keywords" content="Linux, DevOps, Freelance, Automation, Administrator, System">
+        {{end}}
+        <link rel="preload" href="/static/styles/style.min.css" as="style">
+        <link rel="stylesheet" type="text/css" href="/static/styles/style.min.css">
+        <link rel="canonical" href="https://maximilien-nadji.com/blog">
+        <link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en/blog">
+        <link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr/blog">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/manifest.json">
+        <title>{{.translations.title}}</title>
+    </head>
+    <body>
+        {{template "navbar" .}}
+
+        <section class="content">
+            <div class="content-container">
+                <h2 id="articles-title">Articles</h2>
+                <ul class="articles">
+                    <li>
+                        <a href="/blog/git" data-key="blog_index.git">{{.translations.blog_index.git }}</a>
+                        <p class="date">24/03/2025</p>
+                    </li>
+                    <li>
+                        <a href="/blog/user-group-file-permissions" data-key="blog_index.user_group_file_permissions">{{.translations.blog_index.user_group_file_permissions }}</a>
+                        <p class="date">24/03/2025</p>
+                    </li>
+                    <li>
+                        <a href="/blog/backup-restore-recovery" data-key="blog_index.brr">{{.translations.blog_index.brr }}</a>
+                        <p class="date">17/03/2025</p>
+                    </li>
+                    <li>
+                        <a href="/blog/bootable-usb" data-key="blog_index.usb">{{.translations.blog_index.usb }}</a>
+                        <p class="date">17/03/2025</p>
+                    </li>
+                    <li>
+                        <a href="/blog/linux" data-key="blog_index.linux">{{.translations.blog_index.linux }}</a>
+                        <p class="date">17/03/2025</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        {{template "footer" .}}
+
+        <script src="/theme.js" defer></script>
+        <script src="/lang.js" defer></script>
+        <script src="/nav.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<nav class="navbar">
+    <div class="nav-left">
+        <ul>
+            <li>
+                <a href="/{{.language}}">
+                    <img src="/images/logo.svg" alt="Logo" class="logo" width="100" height="85">
+                    <span class="sitename">Maximilien Nadji</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <ul>
+            <li class="icons" id="switchTheme">
+                <img src="/images/moon.svg" class="sun" alt="Dark Mode">
+                <img src="/images/sun.svg" class="moon" alt="Light Mode">
+            </li>
+            <li>
+                <div class="langs">
+                    <label for="lang-selector" class="sr-only">Choose a language</label>
+                    <select class="lang-selector" id="lang-selector" name="lang-selector">
+                        <option value="en" selected="{{ if eq .language "en" }} true {{ else }} false {{ end }}">🇬🇧 English</option>
+                        <option value="fr" selected="{{ if eq .language "fr" }} true {{ else }} false {{ end }}">🇫🇷 Français</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <a id="toggle-nav" onclick="toggleNav()">
+                    <img class="bars" src="/images/menu-bar.svg" alt="menu" width="20" height="20">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <ul id="links" class="links">
+        <li>
+            <a href="/appointment" data-key="appointment">{{.translations.appointment}}</a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/maximilien-nadji/">LinkedIn</a>
+        </li>
+        <li>
+            <a href="/blog">Blog</a>
+        </li>
+        <li>
+            <a href="https://github.com/nadmax">GitHub</a>
+        </li>
+        <li>
+            <a href="/about" data-key="about">{{.translations.about}}</a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{.language}}" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Maximilien Nadji">
+        {{ if eq .language "fr" }}
+            <meta name="description" content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance">
+            <meta name="keywords" content="Linux, DevOps, Freelance, Administrateur, Système, Automatisation">
+        {{ else }}
+            <meta name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.">
+            <meta name="keywords" content="Linux, DevOps, Freelance, Automation, Administrator, System">
+        {{ end }}
+        <link rel="stylesheet" type="text/css" href="/styles/style.min.css">
+        <link rel="canonical" href="https://maximilien-nadji.com">
+        <link rel="alternate" hreflang="en" href="https://maximilien-nadji.com/en">
+        <link rel="alternate" hreflang="fr" href="https://maximilien-nadji.com/fr">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/manifest.json">
+        <title>{{ .translations.title }}</title>
+    </head>
+
+    <body>
+        {{template "components/navbar" .}}
+
+        <section class="content">
+            <div class="content-container">
+                <h2>{{ .translations.index.title }}</h2>
+                <div>{{ .translations.index.presentation | safeHTML }}</div>
+                <h2>Services</h2>
+                <div>{{ .translations.index.services | safeHTML }}</div>
+                <div>{{ .translations.index.contact | safeHTML }}</div>
+            </div>
+        </section>
+
+        {{template "components/footer" .}}
+
+    </body>
+
+    <script src="/theme.js" defer></script>
+    <script src="/lang.js" defer></script>
+    <script src="/nav.js" defer></script>
+
+</html>
