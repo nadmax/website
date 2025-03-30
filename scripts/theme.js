@@ -4,10 +4,8 @@ const root = document.documentElement;
 const currentMode = localStorage.getItem('mode');
 const currentTheme = localStorage.getItem('theme');
 
-if (currentMode) {
-    body.classList.add(currentMode);
+if (currentMode)
     root.setAttribute('data-theme', currentTheme || 'light');
-}
 
 function applyTheme(mode, theme) {
     body.classList.toggle('dark-mode', mode === 'dark');
