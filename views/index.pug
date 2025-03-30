@@ -3,6 +3,7 @@ html(lang=language, data-theme='light')
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
         if language == "fr"
             meta(name='description', content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance")
@@ -10,19 +11,16 @@ html(lang=language, data-theme='light')
         else
             meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
             meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
-        link(rel='preload', href='/static/styles/style.min.css', as='style')
-        link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         link(rel='canonical' href='https://maximilien-nadji.com')
         link(rel='alternate' hreflang='en' href='https://maximilien-nadji.com/en')
         link(rel='alternate' hreflang='fr' href='https://maximilien-nadji.com/fr')
-        link(rel="prefetch", href="/about")
-        link(rel="prefetch", href="/blog")
         link(rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png")
         link(rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png")
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
-        link(rel="manifest" href="/manifest.json")
+        link(rel="manifest" href="/manifest.json")            
         title(data-key='title')= translations.title
+        script 0
 
     body
         include components/navbar.pug
@@ -37,6 +35,6 @@ html(lang=language, data-theme='light')
 
         include components/footer.pug
 
-    script(src='/theme.js', defer)
-    script(src='/lang.js', defer)
-    script(src='/nav.js', defer)
+        script(src='/theme.js')
+        script(src='/lang.js')
+        script(src='/nav.js')
