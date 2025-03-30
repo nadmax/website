@@ -25,4 +25,4 @@ function switchThemeBasedOnTime() {
     applyTheme(newMode, newMode);
 }
 
-window.onload = switchThemeBasedOnTime;
+window.addEventListener('DOMContentLoaded', switchThemeBasedOnTime);
