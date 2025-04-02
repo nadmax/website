@@ -20,9 +20,13 @@ modeToggle.addEventListener('click', () => {
 });
 
 function switchThemeBasedOnTime() {
-    const hour = new Date().getHours();
-    const newMode = (hour >= 18 || hour < 6) ? 'dark' : 'light';
-    applyTheme(newMode, newMode);
+    if (savedTheme) {
+        applyTheme(savedTheme, savedTheme);
+    } else {
+        const hour = new Date().getHours();
+        const newMode = (hour >= 18 || hour < 6) ? 'dark' : 'light';
+        applyTheme(newMode, newMode);
+    }
 }
 
 window.addEventListener('DOMContentLoaded', switchThemeBasedOnTime);
