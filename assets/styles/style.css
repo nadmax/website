@@ -25,6 +25,10 @@
     100% { opacity: 1; }
 }
 
+html.loading * {
+    display: none;
+}
+
 body {
     background-color: var(--bg);
     color: var(--fg);
