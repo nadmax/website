@@ -44,7 +44,7 @@ app.get('/appointment', (_req: Request, res: Response) => {
 app.get('/about', async (req: Request, res: Response) => {
     res.render('about', { 
         language: req.language,
-        translations: req.language,
+        translations: req.translations,
     });
 });
 
@@ -90,6 +90,10 @@ app.get('/blog/user-group-file-permissions', async (req: Request, res: Response)
     });
 });
 
-app.listen(port, () => {
-    console.log(`🚀 App starting on http://localhost:${port}`);
-});
+export default app;
+
+if (require.main === module) {
+    app.listen(port, () => {
+        console.log(`🚀 App starting on http://localhost:${port}`);
+    });
+}

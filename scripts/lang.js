@@ -2,23 +2,15 @@ document.documentElement.classList.add('loading');
 
 const langSelector = document.getElementById('lang-selector');
 const savedLang = localStorage.getItem('lang');
-const langFromURL = getLanguageFromUrl();
 
-function getLanguageFromUrl() {
-    const pathParts = window.location.pathname.split('/');
-    return pathParts[1] === 'fr' ? pathParts[1] : 'en';
-}
+const language = savedLang || navigator.language.split('-')[0] || 'en';
 
-if (!savedLang || savedLang === langFromURL)
-    setLanguage(langFromURL);
-else
-    setLanguage(savedLang);
-
+setLanguage(language);
 
 function setLanguage(lang) {
     langSelector.value = lang;
     loadTranslations(lang);
-    updateLanguage(lang);
+    document.documentElement.setAttribute('lang', language);
 }
 
 langSelector.addEventListener('change', () => {
@@ -49,7 +41,7 @@ function updateTranslations(translations) {
 
 function getNestedTranslation(translations, key) {
     if (Array.isArray(key)) key = key.join('.');
-    
+
     return key.split('.').reduce((acc, part) => {
         const arrayMatch = part.match(/(\w+)\[(\d+)\]/);
 
@@ -61,12 +53,4 @@ function getNestedTranslation(translations, key) {
             return acc[part];
         }
     }, translations);
-}
-
-function updateLanguage(language) {
-    const currentPath = window.location.pathname.split('/').slice(2).join('/');
-    if (!window.location.pathname.startsWith(`/${language}/`)) {
-        window.history.pushState({}, '', `/${language}/${currentPath}`);
-        document.documentElement.setAttribute('lang', language);
-    }
 }
