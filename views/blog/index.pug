@@ -34,8 +34,11 @@ html(lang=language, data-theme='light')
 
         section(class='content')
             div(class='content-container')
-                h2(id='articles-title') Articles
+                h1(id='articles-title') Articles
                 ul(class='articles')
+                    li
+                        a(href='/blog/linux' data-key='blog_index.linux')= translations.blog_index.linux
+                        p(class='date') 17/03/2025 (Last updated: 03/04/2025)
                     li
                         a(href='/blog/git' data-key='blog_index.git')= translations.blog_index.git
                         p(class='date') 24/03/2025
@@ -47,9 +50,6 @@ html(lang=language, data-theme='light')
                         p(class='date') 17/03/2025
                     li
                         a(href='/blog/bootable-usb' data-key='blog_index.usb')= translations.blog_index.usb
-                        p(class='date') 17/03/2025
-                    li
-                        a(href='/blog/linux' data-key='blog_index.linux')= translations.blog_index.linux
                         p(class='date') 17/03/2025
 
         include ../components/footer.pug

@@ -175,12 +175,12 @@ pre>code {
 }
 
 p.date {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--fg)
 }
 
 p.article-date {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--fg);
 }
 
@@ -310,7 +310,8 @@ footer {
 
 @media only screen and (max-width:768px) {
     h1 {
-        font-size: 1.8em
+        font-size: 1.8em;
+        margin-top: 1em;
     }
 
     h2 {
