@@ -1,4 +1,6 @@
 User-agent: *
 Disallow:
 Allow: /public/
+Allow: /fr/
+Allow: /en/
 Sitemap: https://www.maximilien-nadji.com/sitemap.xml
