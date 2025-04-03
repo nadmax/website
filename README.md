@@ -3,11 +3,8 @@
 # Website  
 
 Welcome to my personal website!  
-I am a freelance Linux system administrator embracing the DevOps philosophy.  
-I help companies solve Linux infrastructure problems by ensuring security, performance and automation.  
 
-## Contact  
-Let’s collaborate or connect for any inquiries !  
+I am a Linux System Administrator fostering the DevOps culture.  
+My focus lies in driving automation, enhancing continuous integration, and bridging the gap between development and operations teams to deliver reliable, high-performance, and highly available solutions.    
 
-Email: maximilien.nadji@pm.me  
-Visit my website: https://maximilien-nadji.com  
+To visit my website: https://maximilien-nadji.com  
