@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { Translations } from '../types/translations';
 
-const translationsCache: { [key: string]: any } = {};
+const translationsCache: { [key: string]: Translations } = {};
 
-export async function loadTranslations(lang: string): Promise<any> {
+export async function loadTranslations(lang: string): Promise<Translations> {
     if (translationsCache[lang]) {
         return translationsCache[lang];
     }

@@ -44,7 +44,7 @@ app.get('/appointment', (_req: Request, res: Response) => {
 app.get('/about', async (req: Request, res: Response) => {
     res.render('about', { 
         language: req.language,
-        translations: req.language,
+        translations: req.translations,
     });
 });
 

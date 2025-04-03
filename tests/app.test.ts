@@ -34,7 +34,7 @@ describe('App Routes', () => {
     });
 
     it('GET /static should serve static files', async () => {
-        const response = await request(app).get('/static/somefile.js');
+        const response = await request(app).get('/static/images/logo.svg');
         expect(response.status).toBe(200);
     });
 
