@@ -1,7 +1,7 @@
-import { languageMiddleware } from './middleware/languageMiddleware';
+import { languageDetectionMiddleware, translationMiddleware } from './middleware/languageMiddleware';
+
 import express, { Express, Request, Response } from 'express';
 import compression from 'compression';
-import fs from 'fs';
 import path from 'path';
 
 const app: Express = express();
@@ -18,7 +18,8 @@ app.use(compression({
 
 app.set('view engine', 'pug');
 
-app.use(languageMiddleware);
+app.use(languageDetectionMiddleware);
+app.use(translationMiddleware);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
 app.use("/static", express.static(path.join(__dirname, 'assets')));
@@ -30,13 +31,9 @@ app.use(express.urlencoded({
 }));
 
 app.get('/', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
-        .then(data => JSON.parse(data));
-
     res.render('index', { 
-        language: lang,
-        translations,
+        language: req.language,
+        translations: req.translations,
     });
 });
 
@@ -45,78 +42,51 @@ app.get('/appointment', (_req: Request, res: Response) => {
 })
 
 app.get('/about', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
-        .then(data => JSON.parse(data));
-
     res.render('about', { 
-        language: lang,
-        translations,
+        language: req.language,
+        translations: req.language,
     });
 });
 
 app.get('/blog', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = require(`./locales/${lang}.json`);
-
     res.render('blog/index', { 
-        language: lang,
-        translations,
+        language: req.language,
+        translations: req.translations,
     });
 });
 
 app.get('/blog/linux', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
-        .then(data => JSON.parse(data));
-    
     res.render('blog/linux', { 
-        language: lang,
-        translations, 
+        language: req.language,
+        translations: req.translations,
     });
 });
 
 app.get('/blog/git', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
-        .then(data => JSON.parse(data));
-    
     res.render('blog/git', { 
-        language: lang,
-        translations, 
+        language: req.language,
+        translations: req.translations,
     });
 });
 
 app.get('/blog/bootable-usb', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
-        .then(data => JSON.parse(data));
-    
     res.render('blog/usb', { 
-        language: lang,
-        translations,
+        language: req.language,
+        translations: req.translations,
     });
 });
 
 app.get('/blog/backup-restore-recovery', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
-        .then(data => JSON.parse(data));
-
     res.render('blog/brr', { 
-        language: lang,
-        translations, 
+        language: req.language,
+        translations: req.translations,
     });
 });
 
 app.get('/blog/user-group-file-permissions', async (req: Request, res: Response) => {
-    const lang = req.language;
-    const translations = await fs.promises.readFile(`./locales/${lang}.json`, 'utf-8')
-        .then(data => JSON.parse(data));
-
     res.render('blog/users', { 
-        language: lang,
-        translations, 
+        language: req.language,
+        translations: req.translations,
     });
 });
 

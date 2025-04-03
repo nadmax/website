@@ -1,8 +1,10 @@
+import { loadTranslations } from '../helpers/translations';
+
 import { NextFunction, Request, Response } from 'express';
 
 const supportedLanguages = ["en", "fr"];
 
-export const languageMiddleware = (req: Request, res: Response, next: NextFunction) => {
+export const languageDetectionMiddleware = (req: Request, res: Response, next: NextFunction) => {
     const lang = req.path.split("/")[1];
 
     if (supportedLanguages.includes(lang)) {
@@ -17,3 +19,10 @@ export const languageMiddleware = (req: Request, res: Response, next: NextFuncti
 
     next();
 };
+
+export const translationMiddleware = async (req: Request, _res: Response, next: NextFunction) => {
+    const lang = req.language || 'en';
+    req.translations = await loadTranslations(lang);
+
+    next();
+}
