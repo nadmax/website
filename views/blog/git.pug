@@ -5,12 +5,21 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
+        meta(property="og:site_name" content=translations.title)
+        meta(property="og:title" content=translations.git_article.title)
         if language == "fr"
-            meta(name='description', content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance")
+            meta(property="og:description" content="Explorez ce qu'est Git, son importance dans le cycle de vie du développement logiciel et mettre en avant quelques commandes Git utiles")
+            meta(name='description', content="Explorez ce qu'est Git, son importance dans le cycle de vie du développement logiciel et mettre en avant quelques commandes Git utiles")
             meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
         else
-            meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
+            meta(property="og:description" content="Dive into what Git is, its importance in the software development lifecycle, and highlight some useful Git commands")
+            meta(name="description" content="Dive into what Git is, its importance in the software development lifecycle, and highlight some useful Git commands")
             meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
+        meta(property="og:image" content="https://maximilien-nadji.com/thumbnail.jpg")
+        meta(property="og:url" content="https://maximilien-nadji.com")
+        meta(property="og:type" content="website")
+        meta(name="twitter:card" content="summary_large_image")
+        meta(name="twitter:image" content="https://maximilien-nadji.com/thumbnail.jpg")
         link(rel='canonical' href='https://maximilien-nadji.com/blog/git')
         link(rel='alternate' hreflang='en' href='https://maximilien-nadji.com/en/blog/git')
         link(rel='alternate' hreflang='fr' href='https://maximilien-nadji.com/fr/blog/git')
@@ -20,7 +29,6 @@ html(lang=language, data-theme='light')
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
         title(data-key='title')= translations.title
-        script 0
 
     body
         include ../components/navbar.pug

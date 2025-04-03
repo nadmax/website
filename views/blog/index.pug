@@ -5,12 +5,20 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
+        meta(property="og:title" content=translations.title)
         if language == "fr"
-            meta(name='description', content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance")
-            meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
+            meta(property="og:description" content="Explorez des articles, tutoriels et conseils sur Linux et DevOps issus de mon expérience personnelle pour vous aider à maîtriser ces sujets")
+            meta(name='description', content="Explorez des articles, tutoriels et conseils sur Linux et DevOps issus de mon expérience personnelle pour vous aider à maîtriser ces sujets.")
+            meta(name='keywords', content='Linux, Administration, Système, DevOps, Blog, Articles, Tutoriels, Conseils')
         else
-            meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
-            meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
+            meta(property="og:description" content="Explore Linux and DevOps articles, tutorials, and insights from my own experience to help you master these topics")
+            meta(name="description" content="Explore Linux and DevOps articles, tutorials, and insights from my own experience to help you master these topics")
+            meta(name='keywords', content='Linux, Administration, System, DevOps, Blog, Articles, Tutorials, Insights')
+        meta(property="og:image" content="https://maximilien-nadji.com/thumbnail.jpg")
+        meta(property="og:url" content="https://maximilien-nadji.com")
+        meta(property="og:type" content="website")
+        meta(name="twitter:card" content="summary_large_image")
+        meta(name="twitter:image" content="https://maximilien-nadji.com/thumbnail.jpg")
         link(rel='canonical' href='https://maximilien-nadji.com/blog')
         link(rel='alternate' hreflang='en' href='https://maximilien-nadji.com/en/blog')
         link(rel='alternate' hreflang='fr' href='https://maximilien-nadji.com/fr/blog')
@@ -20,7 +28,6 @@ html(lang=language, data-theme='light')
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
         title(data-key='title')= translations.title
-        script 0
 
     body
         include ../components/navbar.pug

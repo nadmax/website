@@ -5,7 +5,7 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
-        meta(property="og:title" content="Maximilien Nadji - Linux System Administrator")
+        meta(property="og:title" content=translations.title)
         if language == "fr"
             meta(property="og:description" content="Découvrez mes services d'Administrateur Système Linux et de DevOps garantissant sécurité, performance et haute disponibilité.")
             meta(name='description', content="Découvrez mes services d'Administrateur Système Linux et de DevOps garantissant sécurité, performance et haute disponibilité.")
@@ -28,7 +28,6 @@ html(lang=language, data-theme='light')
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")            
         title(data-key='title')= translations.title
-        script 0
 
     body
         include components/navbar.pug

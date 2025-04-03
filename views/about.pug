@@ -5,12 +5,20 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
+        meta(property="og:title" content=translations.title)
         if language == "fr"
-            meta(name='description', content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance")
+            meta(property="og:description" content="Découvrez mon parcours dans l'informatique, de mes débuts passionnés à ma spécialisation en Administration Système Linux/DevOps.")
+            meta(name='description', content="Découvrez mes services d'Administrateur Système Linux et de DevOps garantissant sécurité, performance et haute disponibilité.")
             meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
         else
-            meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
+            meta(property="og:description" content="Discover my journey in IT, from my early passion to specializing in Linux System Administration and DevOps")
+            meta(name="description" content="Discover my journey in IT, from my early passion to specializing in Linux System Administration and DevOps")
             meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
+        meta(property="og:image" content="https://maximilien-nadji.com/thumbnail.jpg")
+        meta(property="og:url" content="https://maximilien-nadji.com")
+        meta(property="og:type" content="website")
+        meta(name="twitter:card" content="summary_large_image")
+        meta(name="twitter:image" content="https://maximilien-nadji.com/thumbnail.jpg")
         link(rel='canonical' href='https://maximilien-nadji.com/about')
         link(rel='alternate' hreflang='en' href='https://maximilien-nadji.com/en/about')
         link(rel='alternate' hreflang='fr' href='https://maximilien-nadji.com/fr/about')
@@ -20,10 +28,8 @@ html(lang=language, data-theme='light')
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
         title(data-key='title')= translations.title
-        script 0
 
     body
-
         include components/navbar.pug
 
         section(class='content')
