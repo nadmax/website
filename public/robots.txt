@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /public/
-Sitemap: https://www.votre-site.com/sitemap.xml
+Sitemap: https://www.maximilien-nadji.com/sitemap.xml
