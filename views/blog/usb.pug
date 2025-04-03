@@ -5,12 +5,21 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
+        meta(property="og:site_name" content=translations.title)
+        meta(property="og:title" content=translations.usb_article.title)
         if language == "fr"
-            meta(name='description', content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance")
-            meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
+            meta(property="og:description" content="Découvrez comment créer une clé USB bootable sur Linux en 3 méthodes")
+            meta(name='description', content="Découvrez comment créer une clé USB bootable sur Linux en 3 méthodes")
+            meta(name='keywords', content='Linux, USB, Bootable, Clé')
         else
-            meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
-            meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
+            meta(property="og:description" content="Explore three different methods for creating a bootable USB on Linux")
+            meta(name="description" content="Explore three different methods for creating a bootable USB on Linux")
+            meta(name='keywords', content='Linux, USB, Bootable, Key')
+        meta(property="og:image" content="https://maximilien-nadji.com/thumbnail.jpg")
+        meta(property="og:url" content="https://maximilien-nadji.com")
+        meta(property="og:type" content="website")
+        meta(name="twitter:card" content="summary_large_image")
+        meta(name="twitter:image" content="https://maximilien-nadji.com/thumbnail.jpg")
         link(rel='canonical' href='https://maximilien-nadji.com/blog/bootable-usb')
         link(rel='alternate' hreflang='en' href='https://maximilien-nadji.com/en/blog/bootable-usb')
         link(rel='alternate' hreflang='fr' href='https://maximilien-nadji.com/fr/blog/bootable-usb')
@@ -20,7 +29,6 @@ html(lang=language, data-theme='light')
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
         title(data-key='title')= translations.title
-        script 0
 
     body
         include ../components/navbar.pug

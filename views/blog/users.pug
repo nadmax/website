@@ -5,12 +5,21 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
+        meta(property="og:site_name" content=translations.title)
+        meta(property="og:title" content=translations.user_groups_file_permissions_article.title)
         if language == "fr"
-            meta(name='description', content="Services d'Administration Système Linux, des conseils DevOps et des retours d'expériences en tant que freelance")
-            meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
+            meta(property="og:description" content="Découvrez comment créer et modifier des utilisateurs et des groupes, attribuer des permissions et suivre les bonnes pratiques pour maintenir un système sécurisé et bien organisé")
+            meta(name='description', content="Découvrez comment créer et modifier des utilisateurs et des groupes, attribuer des permissions et suivre les bonnes pratiques pour maintenir un système sécurisé et bien organisé")
+            meta(name='keywords', content='Linux, Permissions, Utilisateurs, Groupes, Fichiers, Administrateur, Système')
         else
-            meta(name="description" content="Linux System Administration services, DevOps advice, and freelance experience insights.")
-            meta(name='keywords', content='Linux, DevOps, Freelance, Automation, Administrator, System')
+            meta(property="og:description" content="Discover how to create and modify users and groups, assign permissions, and follow best practices to maintain a secure and well-organized system")
+            meta(name="description" content="Discover how to create and modify users and groups, assign permissions, and follow best practices to maintain a secure and well-organized system")
+            meta(name='keywords', content='Linux, Permissions, Users, Groups, Files, Administrator, System')
+        meta(property="og:image" content="https://maximilien-nadji.com/thumbnail.jpg")
+        meta(property="og:url" content="https://maximilien-nadji.com")
+        meta(property="og:type" content="website")
+        meta(name="twitter:card" content="summary_large_image")
+        meta(name="twitter:image" content="https://maximilien-nadji.com/thumbnail.jpg")
         link(rel='canonical' href='https://maximilien-nadji.com/blog/user-group-file-permissions')
         link(rel='alternate' hreflang='en' href='https://maximilien-nadji.com/en/blog/user-group-file-permissions')
         link(rel='alternate' hreflang='fr' href='https://maximilien-nadji.com/fr/blog/user-group-file-permissions')
@@ -20,7 +29,6 @@ html(lang=language, data-theme='light')
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
         title(data-key='title')= translations.title
-        script 0
 
     body
         include ../components/navbar.pug
