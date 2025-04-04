@@ -39,7 +39,7 @@ describe('App Routes', () => {
     });
 
     it('GET /blog should return a 200 status and render blog index', async () => {
-        const response = await request(app).get('/blog');
+        const response = await request(app).get('/blog/');
         expect(response.status).toBe(200);
         expect(response.text).toContain('Blog');
     });
