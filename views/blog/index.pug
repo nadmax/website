@@ -5,7 +5,7 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
-        meta(property="og:title" content=translations.title)
+        meta(property="og:title" content=translations.common.title)
         if language == "fr"
             meta(property="og:description" content="Explorez des articles, tutoriels et conseils sur Linux et DevOps issus de mon expérience personnelle pour vous aider à maîtriser ces sujets")
             meta(name='description', content="Explorez des articles, tutoriels et conseils sur Linux et DevOps issus de mon expérience personnelle pour vous aider à maîtriser ces sujets.")
@@ -25,7 +25,7 @@ html(lang=language, data-theme='light')
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
-        title(data-key='title')= translations.title
+        title(data-key='common.title')= translations.common.title
 
     body
         include ../components/navbar.pug
@@ -35,20 +35,20 @@ html(lang=language, data-theme='light')
                 h1(id='articles-title') Articles
                 ul(class='articles')
                     li
-                        a(href='/blog/linux' data-key='blog_index.linux')= translations.blog_index.linux
-                        p(class='date') 17/03/2025 (Last updated: 03/04/2025)
+                        a(href='/blog/linux' data-key='page.linux')= translations.page.linux
+                        p(data-key='page.linux_date' class='date')= translations.page.linux_date
                     li
-                        a(href='/blog/git' data-key='blog_index.git')= translations.blog_index.git
-                        p(class='date') 24/03/2025
+                        a(href='/blog/git' data-key='page.git')= translations.page.git
+                        p(data-key='page.git_date' class='date')= translations.page.git_date
                     li
-                        a(href='/blog/user-group-file-permissions' data-key='blog_index.user_group_file_permissions')= translations.blog_index.user_group_file_permissions
-                        p(class='date') 24/03/2025
+                        a(href='/blog/users' data-key='page.users')= translations.page.users
+                        p(data-key='page.user_date' class='date')= translations.page.users_date
                     li
-                        a(href='/blog/backup-restore-recovery' data-key='blog_index.brr')= translations.blog_index.brr
-                        p(class='date') 17/03/2025
+                        a(href='/blog/brr' data-key='page.brr')= translations.page.brr
+                        p(data-key='page.brr_date' class='date')= translations.page.brr_date
                     li
-                        a(href='/blog/bootable-usb' data-key='blog_index.usb')= translations.blog_index.usb
-                        p(class='date') 17/03/2025
+                        a(href='/blog/usb' data-key='page.usb')= translations.page.usb
+                        p(data-key='page.usb_date' class='date')= translations.page.usb_date
 
         include ../components/footer.pug
 

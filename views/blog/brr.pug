@@ -5,8 +5,8 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
-        meta(property="og:site_name" content=translations.title)
-        meta(property="og:title" content=translations.brr_article.title)
+        meta(property="og:site_name" content=translations.common.title)
+        meta(property="og:title" content=translations.page.title)
         if language == "fr"
             meta(property="og:description" content="Découvrez comment établir des processus de sauvegarde, de restauration et de récupération afin de protéger les données et d’assurer la continuité des activités")
             meta(name='description', content="Découvrez comment établir des processus de sauvegarde, de restauration et de récupération afin de protéger les données et d’assurer la continuité des activités")
@@ -26,17 +26,17 @@ html(lang=language, data-theme='light')
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
-        title(data-key='title')= translations.title
+        title(data-key='common.title')= translations.common.title
 
     body
         include ../components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h1(data-key='brr_article.title')= translations.brr_article.title
-                p(class='date') 17/03/2025
-                div(data-key='brr_article.content')!= translations.brr_article.content
-                div(data-key='brr_article.conclusion')!= translations.brr_article.conclusion
+                h1(data-key='page.title')= translations.page.title
+                p(data-key='page.date' class='date')= translations.page.date
+                div(data-key='page.content')!= translations.page.content
+                div(data-key='page.conclusion')!= translations.page.conclusion
 
         include ../components/footer.pug
 

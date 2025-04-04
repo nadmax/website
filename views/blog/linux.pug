@@ -5,8 +5,8 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
-        meta(property="og:site_name" content=translations.title)
-        meta(property="og:title" content=translations.linux_article.title)
+        meta(property="og:site_name" content=translations.common.title)
+        meta(property="og:title" content=translations.page.title)
         if language == "fr"
             meta(property="og:description" content="Découvrez la différence entre Linux et Système Linux ainsi que leurs compositions")
             meta(name='description', content="Découvrez la différence entre Linux et Système Linux ainsi que leurs compositions")
@@ -26,16 +26,16 @@ html(lang=language, data-theme='light')
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
-        title(data-key='title')= translations.title
+        title(data-key='common.title')= translations.common.title
 
     body
         include ../components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h1(data-key='linux_article.title')= translations.linux_article.title
-                p(class='date') 17/03/2025 (Last updated: 03/04/2025)
-                div(data-key='linux_article.content')!= translations.linux_article.content
+                h1(data-key='page.title')= translations.page.title
+                p(data-key='page.date' class='date')= translations.page.date
+                div(data-key='page.content')!= translations.page.content
 
         include ../components/footer.pug
 

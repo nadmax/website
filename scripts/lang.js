@@ -1,56 +1,50 @@
-document.documentElement.classList.add('loading');
+document.documentElement.classList.add("loading");
 
-const langSelector = document.getElementById('lang-selector');
-const savedLang = localStorage.getItem('lang');
+const langSelector = document.getElementById("lang-selector");
+const savedLang = localStorage.getItem("lang");
+const language = savedLang || navigator.language.split("-")[0] || "en";
+const page = window.location.pathname.split("/").filter(Boolean).pop() || "index";
 
-const language = savedLang || navigator.language.split('-')[0] || 'en';
+setLanguage(language, page);
 
-setLanguage(language);
-
-function setLanguage(lang) {
+function setLanguage(lang, page) {
     langSelector.value = lang;
-    loadTranslations(lang);
-    document.documentElement.setAttribute('lang', language);
+    loadTranslations(lang, page);
+    document.documentElement.setAttribute("lang", lang);
 }
 
-langSelector.addEventListener('change', () => {
+langSelector.addEventListener("change", () => {
     const selectedLang = langSelector.value;
-    setLanguage(selectedLang);
-    localStorage.setItem('lang', selectedLang);
+    setLanguage(selectedLang, page);
+    localStorage.setItem("lang", selectedLang);
 });
 
-function loadTranslations(selectedLang) {
-    fetch(`/locales/${selectedLang}.json`)
-        .then(res => res.json())
-        .then(translations => {
-            updateTranslations(translations);
-            document.documentElement.classList.remove('loading');
-        });
+function loadTranslations(selectedLang, currentPage) {
+    Promise.all([
+        fetch(`/locales/${selectedLang}/common.json`).then(res => res.json()), 
+        fetch(`/locales/${selectedLang}/${currentPage}.json`).then(res => res.json())
+    ])
+    .then(([commonTranslations, pageTranslations]) => {
+        const mergedTranslations = {
+            common: commonTranslations, 
+            page: pageTranslations 
+        };
+        updateTranslations(mergedTranslations);
+        document.documentElement.classList.remove("loading");
+    })
+    .catch(error => console.error("Error loading translations:", error));
 }
 
 function updateTranslations(translations) {
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
+    document.querySelectorAll("[data-key]").forEach(element => {
+        const key = element.getAttribute("data-key");
         const value = getNestedTranslation(translations, key);
 
-        if (value) {
+        if (value)
             element.innerHTML = value;
-        }
     });
 }
 
 function getNestedTranslation(translations, key) {
-    if (Array.isArray(key)) key = key.join('.');
-
-    return key.split('.').reduce((acc, part) => {
-        const arrayMatch = part.match(/(\w+)\[(\d+)\]/);
-
-        if (arrayMatch) {
-            const arrayKey = arrayMatch[1];
-            const index = parseInt(arrayMatch[2], 10);
-            return acc[arrayKey][index];
-        } else {
-            return acc[part];
-        }
-    }, translations);
+    return key.split(".").reduce((acc, part) => acc?.[part], translations);
 }

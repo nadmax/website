@@ -70,21 +70,21 @@ app.get('/blog/git', async (req: Request, res: Response) => {
     });
 });
 
-app.get('/blog/bootable-usb', async (req: Request, res: Response) => {
+app.get('/blog/usb', async (req: Request, res: Response) => {
     res.render('blog/usb', { 
         language: req.language,
         translations: req.translations,
     });
 });
 
-app.get('/blog/backup-restore-recovery', async (req: Request, res: Response) => {
+app.get('/blog/brr', async (req: Request, res: Response) => {
     res.render('blog/brr', { 
         language: req.language,
         translations: req.translations,
     });
 });
 
-app.get('/blog/user-group-file-permissions', async (req: Request, res: Response) => {
+app.get('/blog/users', async (req: Request, res: Response) => {
     res.render('blog/users', { 
         language: req.language,
         translations: req.translations,
