@@ -8,6 +8,7 @@
     "bun-types": "^1.2.5",
     "compression": "^1.8.0",
     "express": "5.0.1",
+    "nocache": "^4.0.0",
     "pug": "^3.0.3"
   },
   "devDependencies": {

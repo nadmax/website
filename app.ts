@@ -2,6 +2,7 @@ import { languageDetectionMiddleware, translationMiddleware } from './middleware
 
 import express, { Express, Request, Response } from 'express';
 import compression from 'compression';
+import nocache from 'nocache';
 import path from 'path';
 
 const app: Express = express();
@@ -17,7 +18,7 @@ app.use(compression({
 }));
 
 app.set('view engine', 'pug');
-
+app.use(nocache());
 app.use(languageDetectionMiddleware);
 app.use(translationMiddleware);
 app.use(express.json());
@@ -31,7 +32,7 @@ app.use(express.urlencoded({
 }));
 
 app.get('/', async (req: Request, res: Response) => {
-    res.render('index', { 
+    res.status(200).render('index', { 
         language: req.language,
         translations: req.translations,
     });
@@ -48,7 +49,7 @@ app.get('/about', async (req: Request, res: Response) => {
     });
 });
 
-app.get('/blog', async (req: Request, res: Response) => {
+app.get('/blog/', async (req: Request, res: Response) => {
     res.render('blog/index', { 
         language: req.language,
         translations: req.translations,
