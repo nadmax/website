@@ -5,7 +5,7 @@ html(lang=language, data-theme='light')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
-        meta(property="og:title" content=translations.title)
+        meta(property="og:title" content=translations.common.title)
         if language == "fr"
             meta(property="og:description" content="Découvrez mon parcours dans l'informatique, de mes débuts passionnés à ma spécialisation en Administration Système Linux/DevOps.")
             meta(name='description', content="Découvrez mes services d'Administrateur Système Linux et de DevOps garantissant sécurité, performance et haute disponibilité.")
@@ -25,15 +25,15 @@ html(lang=language, data-theme='light')
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
-        title(data-key='title')= translations.title
+        title(data-key='common.title')= translations.common.title
 
     body
         include components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h2(data-key='about_page.title')= translations.about_page.title
-                div(data-key='about_page.content')!= translations.about_page.content
+                h2(data-key='page.title')= translations.page.title
+                div(data-key='page.content')!= translations.page.content
 
         include components/footer.pug
 
