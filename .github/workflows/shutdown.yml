@@ -15,5 +15,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
           script: |
-            docker stack rm website
+            docker stack rm vps
             docker system prune -af --volumes
