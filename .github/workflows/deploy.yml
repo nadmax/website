@@ -70,11 +70,11 @@ jobs:
       run: |
         echo 'GIT_COMMIT_HASH="${{ github.sha }}"' >> .env
     - name: Pull Traefik image
-      run: docker pull traefik:v3.3.3
+      run: docker pull traefik:v3.3.5
     - name: Docker Stack Deploy
       uses: cssnr/stack-deploy-action@v1
       with:
-        name: 'website'
+        name: 'vps'
         file: 'docker-stack.yml'
         host: ${{ secrets.REMOTE_HOST }}
         port: ${{ secrets.REMOTE_PORT }}
