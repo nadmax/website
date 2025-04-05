@@ -54,6 +54,7 @@ jobs:
           format: 'table'
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
+          output: "./scan-reports/scan-report-$(date +'%Y-%m-%d').json"
       - name: Log in to the Container registry
         uses: docker/login-action@v3
         with:
@@ -102,5 +103,5 @@ jobs:
       - name: Upload Trivy vulnerability report
         uses: actions/upload-artifact@v4
         with:
-          name: trivy-report
-          path: trivy-report.json
+          name: scan-report-$(date +'%Y-%m-%d')
+          path: "./scan-reports/scan-report-$(date +'%Y-%m-%d').json"
