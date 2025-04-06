@@ -32,7 +32,7 @@ app.use(express.urlencoded({
 }));
 
 app.get('/', async (req: Request, res: Response) => {
-    res.status(200).render('index', { 
+    res.render('index', { 
         language: req.language,
         translations: req.translations,
     });
