@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: go mod tidy
       - name: Build app
-        run: go build -ldflags "-s -w" -o app .
+        run: go build -ldflags "-s -w" -o app backend/app.go
 
   build-scan-and-push-image:
     needs:
