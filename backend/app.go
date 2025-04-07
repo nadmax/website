@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/nadmax/website/middleware"
-	"github.com/nadmax/website/routes"
+	"github.com/nadmax/website/backend/middleware"
+	"github.com/nadmax/website/backend/routes"
 
 	"log"
 

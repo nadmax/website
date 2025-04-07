@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/nadmax/website/utils"
+	"github.com/nadmax/website/backend/utils"
 )
 
 var supportedLanguages = []string{"en", "fr"}
