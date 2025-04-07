@@ -12,5 +12,9 @@ COPY public/ ./public/
 COPY assets/ ./assets/
 COPY views/ ./views/
 COPY locales/ ./locales/
+COPY utils/ ./utils
+COPY scripts/ ./scripts
+COPY routes/ ./routes
+COPY middleware/ ./middleware
 EXPOSE 8080/tcp
 CMD ["./app"]
