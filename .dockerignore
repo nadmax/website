@@ -1,8 +1,6 @@
-node_modules
 *compose*
 .git
 .gitignore
-package-lock.json
 README.md
 LICENSE
 .vscode
