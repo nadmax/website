@@ -14,14 +14,21 @@ nav(class='navbar')
                 div(class='langs')
                     label(for='lang-selector' class='sr-only') Choose a language
                     select(class='lang-selector' id='lang-selector' name='lang-selector')
-                        option(value='en', selected=(language === 'en')) 🇬🇧 English
-                        option(value='fr', selected=(language === 'fr')) 🇫🇷 Français
+                        if eq .language "en"
+                            option(value='en', selected) 🇬🇧 English
+                        else
+                            option(value='en') 🇬🇧 English
+                        
+                        if eq .language "fr"
+                            option(value='fr', selected) 🇫🇷 Français
+                        else
+                            option(value='fr') 🇫🇷 Français
             li
                 a(id='toggle-nav' onclick='toggleNav()')
                     img(class='bars', src='/static/images/menu-bar.svg' alt='menu' width='20' height='20')
         ul(id='links' class='links')
             li
-                a(href='/appointment' data-key='common.appointment')= translations.common.appointment
+                a(href='/appointment' data-key='common.appointment')= .common.appointment
             li
                 a(href='https://www.linkedin.com/in/maximilien-nadji/') LinkedIn
             li
@@ -29,5 +36,5 @@ nav(class='navbar')
             li
                 a(href='https://github.com/nadmax') GitHub
             li
-                a(href='/about' data-key='common.about')= translations.common.about
+                a(href='/about' data-key='common.about')= .common.about
         

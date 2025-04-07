@@ -1,13 +1,13 @@
 doctype html
-html(lang=language, data-theme='light')
+html(lang=.language, data-theme='light')
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
-        meta(property="og:site_name" content=translations.common.title)
-        meta(property="og:title" content=translations.page.title)
-        if language == "fr"
+        meta(property="og:site_name" content=.common.title)
+        meta(property="og:title" content=.page.title)
+        if eq .language "fr"
             meta(property="og:description" content="Explorez ce qu'est Git, son importance dans le cycle de vie du développement logiciel et mettre en avant quelques commandes Git utiles")
             meta(name='description', content="Explorez ce qu'est Git, son importance dans le cycle de vie du développement logiciel et mettre en avant quelques commandes Git utiles")
             meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
@@ -26,16 +26,16 @@ html(lang=language, data-theme='light')
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")
-        title(data-key='common.title')= translations.common.title
+        title(data-key='common.title')= .common.title
 
     body
         include ../components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h1(data-key='page.title')= translations.page.title
-                p(data-key='page.date' class='date')= translations.page.date
-                div(data-key='page.content')!= translations.page.content
+                h1(data-key='page.title')= .page.title
+                p(data-key='page.date' class='date')= .page.date
+                div(data-key='page.content')!= .page.content
 
         include ../components/footer.pug
 

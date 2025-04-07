@@ -1,12 +1,12 @@
 doctype html
-html(lang=language, data-theme='light')
+html(lang=.language, data-theme='light')
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet' type='text/css', href='/static/styles/style.min.css')
         meta(name='author', content='Maximilien Nadji')
-        meta(property="og:title" content=translations.common.title)
-        if language == "fr"
+        meta(property="og:title" content=.common.title)
+        if eq .language "fr"
             meta(property="og:description" content="Découvrez mes services d'Administrateur Système Linux et de DevOps garantissant sécurité, performance et haute disponibilité.")
             meta(name='description', content="Découvrez mes services d'Administrateur Système Linux et de DevOps garantissant sécurité, performance et haute disponibilité.")
             meta(name='keywords', content='Linux, DevOps, Freelance, Administrateur, Système, Automatisation')
@@ -25,18 +25,18 @@ html(lang=language, data-theme='light')
         link(rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png")
         link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
         link(rel="manifest" href="/manifest.json")            
-        title(data-key='common.title')= translations.common.title
+        title(data-key='common.title')= .common.title
 
     body
         include components/navbar.pug
 
         section(class='content')
             div(class='content-container')
-                h2(data-key='page.title')= translations.page.title
-                div(data-key='page.presentation')!= translations.page.presentation
+                h2(data-key='page.title')= .page.title
+                div(data-key='page.presentation')!= .page.presentation
                 h2 Services
-                div(data-key="page.services")!= translations.page.services
-                div(data-key='page.contact')!= translations.page.contact
+                div(data-key="page.services")!= .page.services
+                div(data-key='page.contact')!= .page.contact
 
         include components/footer.pug
 
