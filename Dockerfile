@@ -1,14 +1,16 @@
-FROM oven/bun:1.2-alpine AS base
+FROM golang:1.24.2-alpine AS builder
 WORKDIR /app
-
-FROM base AS install
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile --production
-
-FROM base AS release
-COPY --from=install /app/node_modules node_modules
+COPY go.mod go.sum ./
+RUN go mod tidy
 COPY . .
+RUN go build -o app .
 
-USER bun
+FROM alpine:3.21.3
+WORKDIR /app
+COPY --from=builder /app/app .
+COPY public/ ./public/
+COPY assets/ ./assets/
+COPY views/ ./views/
+COPY locales/ ./locales/
 EXPOSE 8080/tcp
-ENTRYPOINT ["bun", "app.ts"]
+CMD ["./app"]
