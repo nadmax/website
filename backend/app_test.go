@@ -3,12 +3,12 @@ package main_test
 import (
     "net/http/httptest"
     "testing"
-	"github.com/nadmax/website"
+	. "github.com/nadmax/website/backend"
     "github.com/stretchr/testify/assert"
 )
 
 func TestRoutes(t *testing.T) {
-	app := main.SetupApp()
+	app := SetupApp()
 
     t.Run("GET / should return a 200 status and render index", func(t *testing.T) {
         req := httptest.NewRequest("GET", "/", nil)

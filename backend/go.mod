@@ -1,10 +1,11 @@
-module github.com/nadmax/website
+module github.com/nadmax/website/backend
 
 go 1.24.2
 
 require (
 	github.com/gofiber/fiber/v2 v2.52.6
 	github.com/gofiber/template/pug/v2 v2.1.8
+	github.com/nadmax/website v0.0.0-20250407123951-876fd1ad2645
 	github.com/stretchr/testify v1.10.0
 )
 

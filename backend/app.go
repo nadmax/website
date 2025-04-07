@@ -13,7 +13,7 @@ import (
 )
 
 func SetupApp() *fiber.App {
-	engine := pug.New("./views", ".pug")
+	engine := pug.New("../frontend/views", ".pug")
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	
@@ -26,10 +26,10 @@ func SetupApp() *fiber.App {
 		CacheControl: false,
 	}))
 	
-	app.Static("/", "./public")
-	app.Static("/", "./scripts")
+	app.Static("/", "../frontend/public")
+	app.Static("/", "../frontend/./scripts")
 	app.Static("/locales", "./locales")
-	app.Static("/static", "./assets")
+	app.Static("/static", "../frontend/assets")
 	
 	app.Use(middleware.LanguageDetectionMiddleware)
 	app.Use(middleware.TranslationMiddleware)
