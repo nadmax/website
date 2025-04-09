@@ -1,16 +1,6 @@
 services:
-  watchtower:
-    image: containrrr/watchtower
-    command:
-      - "--label-enable"
-      - "--interval"
-      - "30"
-      - "--rolling-restart"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
   reverse-proxy:
-    image: traefik:v3.3.3
+    image: traefik:v3.3.5
     command:
       - "--providers.docker"
       - "--providers.docker.exposedbydefault=false"
@@ -27,22 +17,42 @@ services:
     volumes:
       - letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - web
 
-  app:
-    image: ghcr.io/nadmax/website:${GIT_COMMIT_HASH:-prod}
+  backend:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.web.rule=Host(`maximilien-nadji.com`)"
-      - "traefik.http.routers.web.entrypoints=websecure"
-      - "traefik.http.routers.web.tls.certresolver=myresolver"
-      - "com.centurylinklabs.watchtower.enable=true"
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+      - "traefik.http.routers.backend.rule=Host(`maximilien-nadji.com`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.tls.certresolver=myresolver"
     restart: unless-stopped
-    deploy:
-      mode: replicated
-      replicas: 3
+    expose:
+      - "8080"
+    networks:
+      - web
+
+  frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`maximilien-nadji.com`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.routers.frontend.tls.certresolver=myresolver"
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      - web
 
 volumes:
   letsencrypt:
+
+networks:
+  web:
+    external: false

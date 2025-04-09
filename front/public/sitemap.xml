@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://maximilien-nadji.com</loc>
+        <lastmod>2025-04-03</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://www.maximilien-nadji.com/blog/</loc>
+        <lastmod>2025-04-03</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://www.maximilien-nadji.com/about</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+    <url>
+        <loc>https://www.maximilien-nadji.com/appointment</loc>
+        <lastmod>2025-04-03</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.50</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/blog/linux</loc>
+        <lastmod>2025-04-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/blog/usb</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/blog/brr</loc>
+        <lastmod>2025-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/blog/users</loc>
+        <lastmod>2025-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://maximilien-nadji.com/blog/git</loc>
+        <lastmod>2025-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+</urlset>
